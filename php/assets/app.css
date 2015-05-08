@@ -1,0 +1,284 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+@font-face {
+    font-family: 'ChunkFive';
+    src: url('./fonts/ChunkFive.eot');
+    src: url('./fonts/ChunkFive.eot?#iefix') format('embedded-opentype'),url('./fonts/ChunkFive.woff') format('woff'),url('./fonts/ChunkFive.ttf') format('truetype'),url('./fonts/ChunkFive.svg#ChunkFive') format('svg'),url('./fonts/ChunkFive.otf') format('opentype');
+}
+body{
+    background: #0FA6CA url("http://www.cyclephilly.org/themes/cycle/img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.cyan {
+  background-color: #84FFFF;
+}
+.home-link{
+  font-size:30px;
+}
+
+#chunk {
+  font-family: ChunkFive,Helvetica,Arial,sans-serif;
+}
+
+.menu-link{
+  padding-left:10px;
+  font-size:1em;
+}
+
+.menu-icon{
+  position:absolute;right:20px;bottom:3px;
+}
+
+#intro{
+
+}
+
+#intro {
+    
+      height: auto;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 100px 0px 100px 0px;
+}
+#masthead{
+  box-shadow: 0 0 14px rgba(196,196,196,0.8);
+    color: #fff;
+    background-color: rgba(151,151,151,0.3);
+    padding: 5%;
+}
+.text-center{
+  text-align: center;
+}
+
+#intro h1 {
+  font-size: 3.189em;
+  line-height: 1.223;
+  text-shadow: 0 2px 2px rgba(0,0,0,.65);
+}
+
+#intro p {
+  font-size: 1.263em;
+  line-height: 1.223;
+  margin: .612em 0;
+}
+
+.list-header{
+  text-align: center;
+}
+
+.laicard{
+  margin:10px;
+}
+
+.home-icon{
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}
+.typeLabel {
+    min-width: 9px;
+  margin-right: 0px;
+  min-height: 71px;
+  background-color: #E5E5E5;/*#E49696 -red #96BDE4 - blue #E5E5E5 - grey */
+}
+.connect-button{
+  border: 1px solid #fff;
+  width: 50%;
+  margin: 5px;
+  background: #000;
+  color: #fff;
+}
+
+.forSale{
+  background-color: #A9DF8F;
+}
+
+.sherrifSale{
+  background-color: #E49696;
+}
+
+.hasAction{
+  background-color: #96BDE4;
+}
+/* Toolbar area */
+
+.menu {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+md-toolbar h1 {
+  margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+  md-list .md-button.selected {
+    color: #03a9f4;
+  }
+
+  md-sidenav  md-list {
+    padding: 0px 0px 8px 0px;
+  }
+
+
+/* Primary content area */
+
+#content {
+  overflow: hidden;
+}
+
+#content  {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+}
+
+#content .md-button.share {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+#content md-icon.avatar {
+  margin-top: 10px;
+}
+
+.dashboard-avatar{
+  width:25px;
+  height:25px;
+}
+
+#content .md-button.share > md-icon {
+  fill:black;
+  width:36px;
+  height:36px;
+}
+
+md-button.menuBtn > md-icon {
+  fill:white;
+  width:24px;
+  height:24px;
+}
+
+#content .md-button.share:active > md-icon {
+  background-color: #dadada;
+  border-radius: 75%;
+  padding:4px;
+  transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+  display: block;
+  height: auto;
+  max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+.avatar {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}
+
+
+md-bottom-sheet  md-icon {
+  margin-right:20px;
+}
+
+span.name {
+  font-weight: bold;
+  font-size:1.1em;
+  padding-left:5px;
+}
+
+.teacherCards md-content.autocomplete {
+  min-height: 250px; }
+.teacherCards .md-item-text.compact {
+  padding-top: 8px;
+  padding-bottom: 8px; }
+.teacherCards .contact-item {
+  box-sizing: border-box; }
+  .teacherCards .contact-item.selected {
+    opacity: 0.5; }
+    .teacherCards .contact-item.selected h3 {
+      opacity: 0.5; }
+  .teacherCards .contact-item .md-list-item-text {
+    padding: 14px 0; }
+    .teacherCards .contact-item .md-list-item-text h3 {
+        font-size: 14px;
+      margin: 0 !important;
+      padding: 0;
+      line-height: 1.2em !important; }
+    .teacherCards .contact-item .md-list-item-text h3, .teacherCards .contact-item .md-list-item-text p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; }
+  @media (min-width: 300px) {
+    .teacherCards .contact-item {
+      float: left;
+        border: 1px solid #999;
+  margin:5px;
+      width: 45%; } }
+.teacherCards md-contact-chips {
+  margin-bottom: 1rem; }
+.teacherCards .md-chips {
+  padding: 0.5rem 0 0.8rem; }
+.teacherCards .fixedRows {
+  height: 550px;
+  overflow: hidden; }
