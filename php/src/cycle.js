@@ -1,6 +1,6 @@
 (function(){
   angular
-    .module('cycleApp', ['cycle.home','ngNewRouter','ngMaterial','ngMessages','firebase'])
+    .module('cycleApp', ['cycle.home','cycle.about','ngNewRouter','ngMaterial','ngMessages','firebase'])
     .config(function($mdThemingProvider, $mdIconProvider,$sceDelegateProvider,$httpProvider){
 
         $mdIconProvider
@@ -50,7 +50,7 @@
 
     })
     .controller('CycleController', [
-      '$router', '$mdSidenav', '$mdBottomSheet','$mdDialog','$mdToast', '$log', '$q','$filter','$scope','$rootScope', '$http',
+      '$router','$location', '$mdSidenav', '$mdBottomSheet','$mdDialog','$mdToast', '$log', '$q','$filter','$scope','$rootScope', '$http',
       CycleController
     ])
     .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
@@ -69,18 +69,22 @@
    * @param avatarsService
    * @constructor
    */
-  function CycleController( $router, $mdSidenav, $mdBottomSheet,$mdDialog,$mdToast, $log, $q,$filter,$scope,$rootScope,$http) {
+  function CycleController( $router,$location, $mdSidenav, $mdBottomSheet,$mdDialog,$mdToast, $log, $q,$filter,$scope,$rootScope,$http) {
     var self = this;
     self.ApplicationTitle = "CyclePhilly";
     // var ref = new Firebase("https://platformx.firebaseio.com");
     self.toggleList = function (){
       $mdSidenav('right').toggle()
     }
+    self.openPage = function(page){
+      $mdSidenav('right').close();
+      $location.path(page);
+    };
     $router.config([
      { path: '/', redirectTo: '/home' },
      { path: '/home', component: 'home' },
      { path: '/dashboard/:id', component: 'dashboard' },
-     { path: '/login', component: 'login' },
+     { path: '/about', component: 'about' },
      { path: '/profile', component: 'profile' },
      { path: '/auth', component: 'auth' },
      { path: '/register', component: 'register' }

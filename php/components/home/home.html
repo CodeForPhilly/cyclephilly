@@ -1,91 +1,25 @@
-<div flex layout="row">
-
-        <md-sidenav class="md-whiteframe-z2" md-component-id="left">
-          <md-list>
-            <md-item ng-repeat="it in ul.users">
-                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                  <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-                  {{it.name}}
-                </md-button>
-            </md-item>
-          </md-list>
-        </md-sidenav>
-
-        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-          <div style="background-color:#ccc" layout="row" layout-align="start center" layout-padding class="md-accent md-hue-2 md-whiteframe-z1">
-            <h2 flex="75">CyclePhilly</h2>
-            <md-button class="md-accent md-hue-2" ng-click="ul.selectUser()" class="">
-                  <span style="">Sign In</span>
-                </md-button>
-          </div>
-          <md-divider></md-divider>
-          <md-list>
-            <md-item layout="column">
-                <md-button ng-click="ul.selectUser()" class="">
-
-                  <span flex class="menu-link">Home</span>
-                  <md-icon style="" md-svg-icon="home" class="menu-icon"></md-icon>
-                </md-button>
-
-            </md-item>
-
-            <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
-                  
-                  <span style="" class="menu-link">About</span>
-                  <md-icon style="" md-svg-icon="help" class="menu-icon"></md-icon>
-                </md-button>
-            </md-item>
-
-            <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
-                  
-                  <span style="" class="menu-link">Maps</span>
-                  <md-icon style="" md-svg-icon="map" class="menu-icon"></md-icon>
-                </md-button>
-            </md-item>
-
-            <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
-                  
-                  <span style="" class="menu-link">Shop</span>
-                  <md-icon style="" md-svg-icon="shopping" class="menu-icon"></md-icon>
-                </md-button>
-            </md-item>
-
-            <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
-                  
-                  <span style="" class="menu-link">Partners</span>
-                  <md-icon style="" md-svg-icon="star" class="menu-icon star"></md-icon>
-                </md-button>
-            </md-item>
-          </md-list>
-        </md-sidenav>
-
-        <md-content style="background-color: rgba(255, 255, 255, 0);">
-<section id="intro" data-speed="6" data-type="background">
-<div class="container">
-<header id="masthead" class="wrapper">
-<div class="container" id="center_top">
-<h1 class="text-center" id="chunk">CyclePhilly</h1>
-<p class="text-center">CyclePhilly is a smartphone app for recording your bicycle trips. Data from the app can be used by regional transportation planners in the Philadelphia area to make Philly a better place to ride.</p>
-<p class="text-center">
-<a href="android"><img class="no-scale" src="./assets/img/play.png"></a>
-<a href="https://itunes.apple.com/us/app/cyclephilly/id850035510?ls=1&amp;mt=8"><img class="no-scale" src="./assets/img/appstore.png"></a>
-</p>
-</div>
-<div class="container" style="max-height: 70px;">
-<div class="row">
-<div class="span4 text-center">
-<a href="http://www.twitter.com/cyclephilly">
-<img class="no-scale float-right" src="./assets/img/Twitter_logo_white_sml.png">
-</a>
-</div>
-</div>
-</div>
-</header>
-</div>
-</section>
-      </md-content>
+<md-content style="background-color: rgba(255, 255, 255, 0);">
+  <section class="cycle-content-block" id="intro" data-speed="6" data-type="background">
+    <div class="container">
+    <header class="masthead wrapper">
+    <div class="container" id="center_top">
+    <h1 class="text-center" id="chunk">CyclePhilly</h1>
+    <p class="text-center">CyclePhilly is a smartphone app for recording your bicycle trips. Data from the app can be used by regional transportation planners in the Philadelphia area to make Philly a better place to ride.</p>
+    <p class="text-center">
+    <a href="android"><img class="no-scale" src="./assets/img/play.png"></a>
+    <a href="https://itunes.apple.com/us/app/cyclephilly/id850035510?ls=1&amp;mt=8"><img class="no-scale" src="./assets/img/appstore.png"></a>
+    </p>
     </div>
+    <div class="container" style="max-height: 70px;">
+    <div class="row">
+    <div class="span4 text-center">
+    <a href="http://www.twitter.com/cyclephilly">
+    <img class="no-scale float-right" src="./assets/img/Twitter_logo_white_sml.png">
+    </a>
+    </div>
+    </div>
+    </div>
+    </header>
+    </div>
+  </section>
+</md-content>

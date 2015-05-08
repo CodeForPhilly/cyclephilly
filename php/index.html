@@ -22,11 +22,73 @@
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
     </md-toolbar>
+<div flex layout="row">
+     <md-sidenav class="md-whiteframe-z2" md-component-id="left">
+          <md-list>
+            <md-item ng-repeat="it in ul.users">
+                <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+                  <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+                  {{it.name}}
+                </md-button>
+            </md-item>
+          </md-list>
+        </md-sidenav>
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+          <div style="background-color:#ccc" layout="row" layout-align="start center" layout-padding class="md-accent md-hue-2 md-whiteframe-z1">
+            <h2 flex="75">CyclePhilly</h2>
+            <md-button class="md-accent md-hue-2" ng-click="ul.selectUser()" class="">
+                  <span style="">Sign In</span>
+                </md-button>
+          </div>
+          <md-divider></md-divider>
+          <md-list>
+            <md-item layout="column">
+                <md-button ng-click="ul.selectUser()" class="">
+
+                  <span flex class="menu-link">Home</span>
+                  <md-icon style="" md-svg-icon="home" class="menu-icon"></md-icon>
+                </md-button>
+
+            </md-item>
+
+            <md-item>
+                <md-button ng-click="ul.openPage('about')" ng-class="svg-1">
+                  
+                  <span style="" class="menu-link">About</span>
+                  <md-icon style="" md-svg-icon="help" class="menu-icon"></md-icon>
+                </md-button>
+            </md-item>
+
+            <md-item>
+                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
+                  
+                  <span style="" class="menu-link">Maps</span>
+                  <md-icon style="" md-svg-icon="map" class="menu-icon"></md-icon>
+                </md-button>
+            </md-item>
+
+            <md-item>
+                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
+                  
+                  <span style="" class="menu-link">Shop</span>
+                  <md-icon style="" md-svg-icon="shopping" class="menu-icon"></md-icon>
+                </md-button>
+            </md-item>
+
+            <md-item>
+                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
+                  
+                  <span style="" class="menu-link">Partners</span>
+                  <md-icon style="" md-svg-icon="star" class="menu-icon star"></md-icon>
+                </md-button>
+            </md-item>
+          </md-list>
+        </md-sidenav>
 
     <ng-viewport></ng-viewport>
 
-    
-
+    </div>
     
 
     <script src="./bower_components/angular/angular.js"></script>
@@ -41,6 +103,7 @@
     
     <script src="./src/cycle.js"></script>
     <script src="./components/home/home.js"></script>
+    <script src="./components/about/about.js"></script>
 
 
   
