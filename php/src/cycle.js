@@ -1,6 +1,6 @@
 (function(){
   angular
-    .module('cycleApp', ['cycle.home','cycle.about','ngNewRouter','ngMaterial','ngMessages','firebase'])
+    .module('cycleApp', ['cycle.home','cycle.about','cycle.maps','cycle.shop','cycle.partners','ngNewRouter','ngMaterial','ngMessages','firebase'])
     .config(function($mdThemingProvider, $mdIconProvider,$sceDelegateProvider,$httpProvider){
 
         $mdIconProvider
@@ -72,6 +72,8 @@
   function CycleController( $router,$location, $mdSidenav, $mdBottomSheet,$mdDialog,$mdToast, $log, $q,$filter,$scope,$rootScope,$http) {
     var self = this;
     self.ApplicationTitle = "CyclePhilly";
+    var parentEl = angular.element(document.body);
+    
     // var ref = new Firebase("https://platformx.firebaseio.com");
     self.toggleList = function (){
       $mdSidenav('right').toggle()
@@ -80,11 +82,35 @@
       $mdSidenav('right').close();
       $location.path(page);
     };
+
+    self.openSignIn = function($event){
+      $mdDialog.show({
+       parent: parentEl,
+       targetEvent: $event,
+       templateUrl:
+         './src/users/view/signInSheet.html',
+       locals: {
+       },
+       controller: DialogController,
+       clickOutsideToClose: true,
+       escapeToClose: false,
+      });
+
+      function DialogController(scope, $mdDialog) {
+        scope.closeDialog = function() {
+          $mdDialog.hide();
+          console.log('here')
+        }
+      }
+    }
     $router.config([
      { path: '/', redirectTo: '/home' },
      { path: '/home', component: 'home' },
      { path: '/dashboard/:id', component: 'dashboard' },
      { path: '/about', component: 'about' },
+     { path: '/maps', component: 'maps' },
+     { path: '/shop', component: 'shop' },
+     { path: '/partners', component: 'partners' },
      { path: '/profile', component: 'profile' },
      { path: '/auth', component: 'auth' },
      { path: '/register', component: 'register' }

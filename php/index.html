@@ -14,15 +14,20 @@
   </head>
 
   <body ng-app="cycleApp" layout="column" ng-controller="CycleController as ul">
-
-    <md-toolbar md-scroll-shrink='true' layout="row">
-      
-      <h1><img id="navbar-logo" class="img-responsive" src="./assets/logo.png" style="width: 55px; padding-top: 5px;"></h1>
-      <md-button class="menu" ng-click="ul.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-    </md-toolbar>
-<div flex layout="row">
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <span flex></span>
+    <h2>
+      <img id="navbar-logo" class="img-responsive" src="./assets/logo.png" style="width: 55px; padding-top: 5px;">
+    </h2>
+    <span flex></span>
+    
+    <md-button class="md-icon-button" ng-click="ul.toggleList()" aria-label="Favorite">
+      <md-icon md-svg-icon="menu" ></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+<div flex layout="column">
      <md-sidenav class="md-whiteframe-z2" md-component-id="left">
           <md-list>
             <md-item ng-repeat="it in ul.users">
@@ -37,14 +42,14 @@
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
           <div style="background-color:#ccc" layout="row" layout-align="start center" layout-padding class="md-accent md-hue-2 md-whiteframe-z1">
             <h2 flex="75">CyclePhilly</h2>
-            <md-button class="md-accent md-hue-2" ng-click="ul.selectUser()" class="">
+            <md-button class="md-accent md-hue-2" ng-click="ul.openSignIn($event)" class="">
                   <span style="">Sign In</span>
                 </md-button>
           </div>
           <md-divider></md-divider>
           <md-list>
             <md-item layout="column">
-                <md-button ng-click="ul.selectUser()" class="">
+                <md-button ng-click="ul.openPage('home')" class="">
 
                   <span flex class="menu-link">Home</span>
                   <md-icon style="" md-svg-icon="home" class="menu-icon"></md-icon>
@@ -61,7 +66,7 @@
             </md-item>
 
             <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
+                <md-button ng-click="ul.openPage('maps')" ng-class="svg-1">
                   
                   <span style="" class="menu-link">Maps</span>
                   <md-icon style="" md-svg-icon="map" class="menu-icon"></md-icon>
@@ -69,7 +74,7 @@
             </md-item>
 
             <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
+                <md-button ng-click="ul.openPage('shop')" ng-class="svg-1">
                   
                   <span style="" class="menu-link">Shop</span>
                   <md-icon style="" md-svg-icon="shopping" class="menu-icon"></md-icon>
@@ -77,19 +82,25 @@
             </md-item>
 
             <md-item>
-                <md-button ng-click="ul.selectUser()" ng-class="svg-1">
+                <md-button ng-click="ul.openPage('partners')" ng-class="svg-1">
                   
                   <span style="" class="menu-link">Partners</span>
                   <md-icon style="" md-svg-icon="star" class="menu-icon star"></md-icon>
                 </md-button>
             </md-item>
           </md-list>
+          <md-divider></md-divider>
+          <footer layout="row">
+            <p layout-padding><a href="#">Terms and Privacy</a></p>
+          <p layout-padding><a href="#">Contact Us</a></p>
+           </footer>
         </md-sidenav>
 
     <ng-viewport></ng-viewport>
+    
 
     </div>
-    
+
 
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
@@ -104,6 +115,9 @@
     <script src="./src/cycle.js"></script>
     <script src="./components/home/home.js"></script>
     <script src="./components/about/about.js"></script>
+    <script src="./components/partners/partners.js"></script>
+    <script src="./components/shop/shop.js"></script>
+    <script src="./components/maps/maps.js"></script>
 
 
   

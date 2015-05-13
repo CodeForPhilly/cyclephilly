@@ -1,0 +1,40 @@
+<md-dialog aria-label="Contact">
+  <md-content class="sticky-container">
+
+  <md-toolbar class="md-accent md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Sign In</h2>
+      <span flex></span>
+    </div>
+  </md-toolbar>
+  <md-progress-linear ng-show="confirming" class="md-hue-2" md-mode="indeterminate"></md-progress-linear>
+  
+    
+    <div class="dialog-content" layout-padding layout-margin>
+      <p>Ahoy! We are making some final tweaks to ensure you have the best experience. Enter the same email address you use in the CyclePhilly App, and we will drop you a note when it is ready to go!</p>
+      <form name="contactForm" ng-submit="saveContact(event)">
+      <div layout="column">
+        <md-input-container flex md-no-float>
+          <label>Email</label>
+          <input type="email" ng-model="email">
+        </md-input-container>
+        <md-input-container flex md-no-float>
+          <label>Name (Optional)</label>
+          <input type="name" ng-model="name">
+        </md-input-container>
+        
+      </div>
+    
+    </form>
+    </div>
+  </md-content>
+  <div class="md-actions" layout="row">
+    <span flex></span>
+    <md-button ng-click="closeDialog('cancel')">
+     Cancel
+    </md-button>
+    <md-button ng-click="saveContact()" class="md-primary md-hue-3">
+      Enter
+    </md-button>
+  </div>
+</md-dialog>

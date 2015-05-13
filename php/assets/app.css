@@ -24,6 +24,17 @@ body{
   font-size:30px;
 }
 
+.home-section {
+  box-shadow: 0 0 14px rgba(196,196,196,0.8);
+  color: #fff;
+  background-color: rgba(151,151,151,0.3);
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  color: #fff;
+}
+
 #chunk {
   font-family: ChunkFive,Helvetica,Arial,sans-serif;
 }
