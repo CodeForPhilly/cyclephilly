@@ -73,7 +73,8 @@
     var self = this;
     self.ApplicationTitle = "CyclePhilly";
     var parentEl = angular.element(document.body);
-    
+    var ref = new Firebase("https://cyclephilly.firebaseio.com");
+ 
     // var ref = new Firebase("https://platformx.firebaseio.com");
     self.toggleList = function (){
       $mdSidenav('right').toggle()
@@ -97,6 +98,41 @@
       });
 
       function DialogController(scope, $mdDialog) {
+        //Firebase this
+        scope.name = '';
+        scope.saveContact = function(){
+          //Create firebase user if none exists
+          scope.confirming = true;
+          ref.createUser({
+            email    : scope.email,
+            password : "narni@"
+          }, function(error, userData) {
+            if (error) {
+              console.log("Error creating user:", error);
+              $mdToast.show(
+                $mdToast.simple()
+                  .content(error)
+                  .position('left')
+                  .hideDelay(4000)
+              );
+            } else {
+              console.log("Successfully created user account with uid:", userData.uid);
+              if(scope.name !=''){
+                toastMessage = "Thanks "+scope.name+" we'll drop you a line real soon!";
+              }else{
+                toastMessage = "Thanks! We'll drop you a line real soon!";
+              }
+              $mdToast.show(
+                $mdToast.simple()
+                  .content(toastMessage)
+                  .position('left')
+                  .hideDelay(4000)
+              );
+              scope.closeDialog();
+                }
+              });
+          
+        }
         scope.closeDialog = function() {
           $mdDialog.hide();
           console.log('here')

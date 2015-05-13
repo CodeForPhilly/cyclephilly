@@ -16,11 +16,11 @@
       <div layout="column">
         <md-input-container flex md-no-float>
           <label>Email</label>
-          <input type="email" ng-model="email">
+          <input type="email" ng-model="email" required>
         </md-input-container>
         <md-input-container flex md-no-float>
           <label>Name (Optional)</label>
-          <input type="name" ng-model="name">
+          <input type="name" md-maxlength="65" ng-model="name">
         </md-input-container>
         
       </div>
