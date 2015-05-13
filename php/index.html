@@ -10,13 +10,32 @@
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/icomoon/style.css">
     <link rel="stylesheet" href="assets/app.css"/>
   </head>
 
   <body ng-app="cycleApp" layout="column" ng-controller="CycleController as ul">
 <md-toolbar>
   <div class="md-toolbar-tools">
-    <span flex></span>
+    <div layout="column" layout-align="start start">
+      <div layout="row">
+        <md-icon md-font-icon="{{ul.weather.icon.name}}"
+           ng-style="{color: ul.weather.icon.color }"
+           ng-class="md-warn"
+           alt="weather Icon"
+           class="step ">
+        </md-icon>
+        <span>{{ul.weather.temperature}}</span>
+        <md-icon md-font-icon="{{ul.weather.temperatureicon.name}}"
+           ng-style="{color: ul.weather.temperatureicon.color }"
+           ng-class="md-warn"
+           alt="weather Icon"
+           class="step ">
+        </md-icon>
+      </div>
+      <span class="{{ul.weather.style}}" ng-style="md-warn">{{ul.weather.message}}</span>
+  </div>
+  <span flex></span>
     <h2>
       <img id="navbar-logo" class="img-responsive" src="./assets/logo.png" style="width: 55px; padding-top: 5px;">
     </h2>

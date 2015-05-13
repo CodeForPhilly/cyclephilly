@@ -74,7 +74,32 @@
     self.ApplicationTitle = "CyclePhilly";
     var parentEl = angular.element(document.body);
     var ref = new Firebase("https://cyclephilly.firebaseio.com");
- 
+    
+    var iconData = [
+      {name: 'icon-home'        , color: "#777" },
+      {name: 'icon-cloudy'   , color: "rgb(0, 104, 180)" },
+      {name: 'icon-google-plus2', color: "#A00" },
+      {name: 'icon-youtube4'    , color:"#00A" },
+       // Use theming to color the font-icon
+      {name: 'icon-settings'    , color:"#A00", theme:"md-warn md-hue-5"}
+    ]
+    
+    var weatherRef = new Firebase('https://publicdata-weather.firebaseio.com/philadelphia/currently');
+    var hourlyWeatherRef = new Firebase('https://publicdata-weather.firebaseio.com/philadelphia/hourly');
+    hourlyWeatherRef.child('summary').on('value', function(snapshot) {
+        //console.log('Temperature is currently ' + snapshot.val());
+        self.weather ={};
+        self.weather.icon = iconData[1];
+        self.weather.temperatureicon = {name: 'icon-Fahrenheit'   , color: "rgb(0,0,0)" }
+        self.weather.message = snapshot.val();
+        self.weather.style = "weather-style";
+        console.log(self.weather)
+    });
+    weatherRef.child('temperature').on('value', function(snapshot) {
+      // console.log('Temperature is currently ' + snapshot.val());
+      self.weather.temperature = snapshot.val();
+  });
+
     // var ref = new Firebase("https://platformx.firebaseio.com");
     self.toggleList = function (){
       $mdSidenav('right').toggle()
@@ -122,7 +147,6 @@
                   .hideDelay(4000)
               );
               scope.closeDialog();
-                }
             } else {
               console.log("Successfully created user account with uid:", userData.uid);
               if(scope.name !=''){
