@@ -99,6 +99,7 @@
 
       function DialogController(scope, $mdDialog) {
         //Firebase this
+        scope.confirming = false;
         scope.name = '';
         scope.saveContact = function(){
           //Create firebase user if none exists
@@ -109,12 +110,19 @@
           }, function(error, userData) {
             if (error) {
               console.log("Error creating user:", error);
+              if(scope.name !=''){
+                toastMessage = "Thanks "+scope.name+" we'll drop you a line real soon!";
+              }else{
+                toastMessage = "Thanks! We'll drop you a line real soon!";
+              }
               $mdToast.show(
                 $mdToast.simple()
-                  .content(error)
+                  .content(toastMessage)
                   .position('left')
                   .hideDelay(4000)
               );
+              scope.closeDialog();
+                }
             } else {
               console.log("Successfully created user account with uid:", userData.uid);
               if(scope.name !=''){
