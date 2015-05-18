@@ -1,0 +1,40 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.+'
+    }
+}
+
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.1'
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 19
+    }
+    productFlavors {
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:19.1.+'
+    compile 'com.google.android.gms:play-services:5.0.89'
+    compile 'com.firebase:firebase-client-android:1.1.1+'
+}
