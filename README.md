@@ -1,2 +1,2 @@
 # cycle_
-Cycle_ bicycle tracking application
+Cycle_ bicycle route tracking application
