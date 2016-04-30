@@ -1,0 +1,2 @@
+describe('mdCard directive', function() {
+});

@@ -1,0 +1,65 @@
+[
+  {
+    "featureType": "road.local",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "road.local",
+    "stylers": [
+      { "color": "#808080" },
+      { "lightness": -48 }
+    ]
+  },{
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "visibility": "on" },
+      { "lightness": -35 }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "stylers": [
+      { "visibility": "on" },
+      { "lightness": -16 }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "invert_lightness": true }
+    ]
+  },{
+    "featureType": "poi.medical",
+    "stylers": [
+      { "invert_lightness": true }
+    ]
+  },{
+    "featureType": "poi.school",
+    "stylers": [
+      { "invert_lightness": true }
+    ]
+  },{
+    "featureType": "poi.business",
+    "stylers": [
+      { "invert_lightness": true }
+    ]
+  },{
+    "featureType": "transit",
+    "stylers": [
+      { "invert_lightness": true },
+      { "lightness": 17 },
+      { "weight": 4.6 }
+    ]
+  },{
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      { "hue": "#ff3300" },
+      { "saturation": 100 }
+    ]
+  },{
+    "featureType": "poi.attraction",
+    "stylers": [
+      { "hue": "#0066ff" },
+      { "lightness": 33 }
+    ]
+  }
+]

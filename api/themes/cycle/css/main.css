@@ -1,0 +1,1210 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+@font-face {
+
+  font-family: 'ChunkFive';
+  src: url('../fonts/ChunkFive.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ChunkFive.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ChunkFive.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/ChunkFive.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ChunkFive.svg#ChunkFive') format('svg'), /* Legacy iOS */
+       url('../fonts/ChunkFive.otf') format('opentype');
+  }
+
+  html {
+  position: relative;
+  min-height: 100%;
+}
+
+body { 
+  background: #0FA6CA url("../img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   margin-bottom: 60px;
+}
+
+#status {
+ position: absolute;
+top: 600px;
+  left: 35%;
+ 
+color: #fff;
+
+  font-family: Arial, sans-serif;
+
+z-index: 10000;
+height:150px;
+width: 150px;
+background: #16A6C9;
+border-radius: 13px;
+visibility: hidden;
+}
+
+.marg-loading {
+
+
+margin-left: 29px;
+
+}
+
+.marg-logo {
+
+
+margin-left: 20px;
+margin-top: 10px;
+}
+
+
+
+
+#status1 {
+  position: fixed;
+  top: 100px;
+  left: 45%;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background: #272727;
+  visibility: hidden;
+}
+
+
+.circle1 {
+  position: relative;
+  top: 0px;
+  width: 0px;
+  height: 0px;
+ 
+  border-right: 60px solid transparent;
+  border-top: 60px solid #1ba7f2;
+  border-left: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  -moz-transform:rotate(320deg);
+  -webkit-transform:rotate(320deg);
+  -o-transform:rotate(320deg);
+  -ms-transform:rotate(320deg);
+  animation: spin1 0.1s infinite linear;
+  -webkit-animation: spin1 0.2s infinite linear;
+  
+}
+
+
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+  display: block;
+  float:left;
+/*   margin: 1% 0 1% 1.6%; */
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+  .col { 
+    margin: 1% 0 1% 0%;
+  }
+}
+
+
+
+/*  GRID OF FIVE   ============================================================================= */
+
+  
+.span_5_of_5 {
+  width: 100%;
+}
+
+.span_4_of_5 {
+    width: 79.68%; 
+}
+
+.span_3_of_5 {
+    width: 59.36%; 
+}
+
+.span_2_of_5 {
+    width: 39.04%;
+}
+
+.span_1_of_5 {
+    width: 18.72%;
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+  .span_5_of_5 {
+    width: 100%; 
+  }
+  .span_4_of_5 {
+    width: 100%; 
+  }
+  .span_3_of_5 {
+    width: 100%; 
+  }
+  .span_2_of_5 {
+    width: 100%; 
+  }
+  .span_1_of_5 {
+    width: 100%; 
+  }
+}
+
+
+html, body {
+  
+height:100%;
+font-family: Arial, Helvetica, sans-serif;
+z-index: 1;
+
+}
+
+.nav {
+
+  color: #ffffff;
+  padding: 5px;
+  font-size: 1.5em;
+float:right;
+
+}
+
+#map {
+
+height:100%;
+clear: both;
+
+}
+
+.cyclePHL_title {
+
+  z-index: 10;
+background-color: #D31208; /* red */
+
+
+  padding:5px;
+}
+
+#cycleTitleText a {
+  color: #ffffff;
+
+padding: 5px;
+  font-size: 2.5em;
+
+}
+
+.chosenBox {
+
+z-index: 25;
+background-color: rgb(0,0,0);
+
+padding: 3px;
+
+}
+
+.smallTitle {
+
+font-size: 1em;
+
+
+}
+
+#filterText {
+
+font-size:1.5em;
+color:#ffffff;
+padding: 5px;
+margin-left:10px;
+
+}
+
+/* leaflet control up */
+
+.leaflet-control-up-link {
+  background-image: url(arrow.png);
+}
+
+.leaflet-control-up {
+   background-color: rgba(0, 0, 0, 0.25); 
+
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
+.leaflet-control-up a {
+  /* background-color: rgba(255, 255, 255, 0.75); */
+   background-color: #ffffff;
+
+  
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.leaflet-control-up a:first-child {
+  margin-top: 0;
+}
+
+
+
+/* leaflet control down */
+
+.leaflet-control-down-link {
+  background-image: url(arrow_down.png);
+}
+
+.leaflet-control-down {
+   background-color: rgba(0, 0, 0, 0.25); 
+
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
+.leaflet-control-down a {
+  /* background-color: rgba(255, 255, 255, 0.75); */
+   background-color: #ffffff;
+
+  
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.leaflet-control-down a:first-child {
+  margin-top: 0;
+}
+
+
+.float-left {
+float: left;
+width: 50%;
+margin: 0 20px 10px 0;
+}
+
+.float-right {
+float: right;
+width: 50%;
+margin: 0 0 10px 20px;
+}
+
+/*clearfix*/
+.row:after, ul.buttons:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}.row,ul.buttons{display:inline-block;}/*  \*/ * html .row, * html ul.buttons{height:1%;} .row, ul.buttons{display: block;}/*  */
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+  }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+#ca_data_selector {
+
+width: 250px;
+
+}
+
+
+
+
+
+
+#counter {
+bottom: 0px;
+width: 100%;
+position: fixed;
+color: #16A6C9;
+float: left;
+font-family: Arial, sans-serif;
+font-size: 15px;
+font-weight: bold;
+padding: 10px;
+background: rgba(0,0,0,0.9);
+font-family: ChunkFive, Helvetica, Arial, sans-serif;
+}
+
+#counter > span{
+  color: #fff;
+}
+.hidden {
+
+display: none;
+
+}
+
+/*Fixed footer */
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: 200;
+}
+
+h1, h2 {
+text-shadow: 0 2px 2px rgba(0, 0, 0, .65);
+}
+
+h1 {
+font-size: 3.189em;
+line-height: 1.223;
+}
+
+p {
+font-size: 1.263em;
+line-height: 1.223;
+margin: .612em 0;
+}
+
+section a {
+
+
+  color: #5A7B37;
+  font-weight: bold;
+  text-decoration: none;
+
+  }
+
+section a:hover {
+
+
+  color: #000;
+
+
+  }
+
+
+
+    #close_button {
+
+
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 15px;
+    text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /*background: rgb(138, 142, 145);
+    background: -moz-linear-gradient(90deg, rgb(138, 142, 145) 30%, rgb(138, 142, 145) 70%);
+    background: -webkit-linear-gradient(90deg, rgb(138, 142, 145) 30%, rgb(138, 142, 145) 70%);
+    background: -o-linear-gradient(90deg, rgb(138, 142, 145) 30%, rgb(138, 142, 145) 70%);
+    background: -ms-linear-gradient(90deg, rgb(138, 142, 145) 30%, rgb(138, 142, 145) 70%);
+    background: linear-gradient(0deg, rgb(138, 142, 145) 30%, rgb(138, 142, 145) 70%);
+    */
+    background: rgba(138, 142, 145, 0.8);
+    -webkit-box-shadow: 0px 4px 5px rgba(38, 38, 38, 0.75);
+    -moz-box-shadow:    0px 4px 5px rgba(38, 38, 38, 0.75);
+    box-shadow:         0px 4px 5px rgba(38, 38, 38, 0.75);
+
+      position: fixed;
+      top: 60px;
+      right: 10px;
+
+}
+
+
+
+  #masthead {
+    box-shadow: 0 0 14px rgba(196, 196, 196, 0.8);
+      color:#fff;
+          
+        background-color: rgba(151,151,151, 0.3);
+        padding: 5%;
+
+
+    }
+  
+
+.navbar-brand{
+  margin-left: auto; margin-right: auto;
+  float: left;
+/* padding: 15px 15px; */
+font-size: 18px;
+/* line-height: 20px; */
+
+}
+
+#navbar-logo{
+  float: left;
+}
+
+/*
+#cyclephilly {
+
+  top: 65px;
+  position: absolute;
+  float: left;
+  font-family: ChunkFive, Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.2em;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0px;
+  color: #256baf;
+
+  }*/
+
+
+
+
+
+.navbar-nav {
+  /*padding-top: 55px;*/
+  /* margin-top: 45px; */
+  float: right;
+  margin: 0;
+}
+
+
+
+#intro {
+height: auto;
+margin: 0 auto;
+width: 100%;
+position: relative;
+padding: 200px 0px 100px 0px;
+/*padding: 20% 5% 20% 5%;*/
+}
+#home { 
+  height: auto;  
+  margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+}
+#about { 
+  color: #fff;
+  background-color: rgba(235, 235, 235, 0.3);
+  height: auto;
+  margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    color: #fff;
+}
+#imap { 
+  box-shadow: 0 0 14px rgba(196, 196, 196, 0.8);
+  color: #fff;
+  background-color: rgba(151,151,151, 0.3);
+  height: auto;
+  margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    color: #fff;
+}
+
+.home-section{
+  box-shadow: 0 0 14px rgba(196,196,196,0.8);
+color: #fff;
+background-color: rgba(151,151,151,0.3);
+height: auto;
+margin: 0 auto;
+width: 100%;
+position: relative;
+color: #fff;
+}
+
+
+
+#video1{
+  left: -398px;
+top: -258px;
+width: 100%;
+opacity: .15;
+}
+
+
+#video2 {
+position: relative;
+/* left: -398px; */
+top: -111px;
+width: 100%;
+}
+
+/* trying to clear sections above and below interactive map section */
+.content-section {
+
+display:block;
+clear: both;
+min-height: 325px;
+}
+
+.content-section .video-wrapper {
+position: relative;
+/* z-index: -100; */
+width: 100%;
+height: 100%;
+overflow: hidden;
+min-height: 325px;
+}
+
+.content-section video {
+opacity: .35;
+/* position: relative; */
+/* top: -20px; */
+}
+
+.content-section .container {
+  position: absolute;
+top: -10px;
+padding-top: 50px;
+padding-left: 30px;
+padding-bottom: 150px;
+}
+
+
+
+figure {
+      position: relative;
+  }
+
+  figure img,
+  figure object,
+  figure embed,
+  figure video {
+      display: block;
+      max-width: 100%; 
+  }
+
+  .marg-left {
+
+
+margin-left: 20%;
+
+
+}
+
+
+
+#chunk {
+
+
+font-family: ChunkFive, Helvetica, Arial, sans-serif;
+
+}
+
+h2 {
+text-shadow: 0 2px 2px rgba(0, 0, 0, .65);
+}
+
+/* Non-essential demo stuff */
+    .hero-unit {
+      background-color: #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .media-object { width: 64px; height: 64px; padding-bottom: 30px }
+
+
+#cfp {
+  width: 25%;
+  height: auto;
+  /* margin-left: 37%; */
+  float: right;
+}
+    
+#cfp img {
+    width: 100%;
+
+    }
+
+      #cfp1 {
+    width: 25%;
+    height: auto;
+
+    /* margin-left: 37%; */
+    float: right;
+/*    background-color: rgba(0,3,51,0.7);
+*/
+    }
+    
+#cfp1 img {
+    width: 100%;
+
+    }
+
+#foot {
+
+  /*background-color: #256BAF;  */
+  /* Dark Blue R: 37 G:107 B:175 */
+
+/*background-color: #16A6C9;*/
+/* Light Blue R: 22 g: 166 B:201 */
+
+background-color: #DFDEB6;
+/* Pale Green R:223 G:222 B:182 */
+
+  /*background-color: #CCD93E;*/
+/* Light Green R:204 G: 217 B: 62 */
+
+/*background-color: #5A7B37;*/
+/* Dark Green R:90 G:123 B:55 */
+
+}
+
+
+/*************************************
+ * Basic lightbox styles. Notice the
+ * default 'display' is 'none'.
+ */
+
+ .lightbox-dark {
+  /** Hide the lightbox */
+  display: none;
+  padding: 0px 20px;
+  /** Apply basic lightbox styling */
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.9);
+  color: #ddd;
+  text-decoration: none;
+
+}
+
+.lightbox-dark:target {
+  /** Show lightbox when it is target */
+  display: block;
+  overflow:scroll;
+  /** Remove default browser outline style */
+  outline: none;
+}
+
+.lightbox {
+  /** Hide the lightbox */
+  display: none;
+
+  /** Apply basic lightbox styling */
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  text-align: center;
+  top: 0;
+  left: 0;
+  background: rgba(90,123,55,0.9);
+  color: black;
+  text-decoration: none;
+
+}
+
+.lightbox img {
+  /** Pad the lightbox image */
+  max-width: 90%;
+  max-height: 80%;
+  margin-top: 5%;
+
+}
+
+.lightbox:target {
+  /** Show lightbox when it is target */
+  display: block;
+  overflow:scroll;
+
+  /** Remove default browser outline style */
+  outline: none;
+}
+
+#termsLink {
+
+
+color: black;
+
+
+}
+
+
+
+
+
+
+
+
+
+/*New cyclephilly and ride  */
+
+
+
+
+#cyclephilly {
+  /*float: left;*/
+  font-family: ChunkFive, Arial, sans-serif;
+  font-size: 30px;
+  /*margin: 5px;*/
+  /*overflow: hidden;*/
+  /*padding: 0px;*/
+  color: #256baf;
+  margin-left: 120px;
+  margin-top: 70px;
+position: absolute;
+  }
+
+
+
+  #ride {
+  /*clear: left;*/
+  color: #16A6C9;
+  /*float: left;*/
+  font-family: Arial, sans-serif;
+  font-size: 7px;
+  font-weight: bold;
+  /*margin-left: 135px;*/
+  /*margin-top: -90px;*/
+  /*overflow: hidden;*/
+  padding: 0px;
+  text-transform: uppercase;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 130px;
+  }
+
+
+
+
+/* Styles for non-mobile */
+
+  @media only screen and (min-width : 768px) {
+
+
+  #cyclephilly {
+
+    font-family: ChunkFive, Arial, sans-serif;
+
+
+    /*font-size: 2.5em;*/
+    margin-top: 60px;
+    margin-left: 125px;
+    font-size: 40px;
+    font-weight: 50;
+    color: #256BAF;
+    position: absolute;
+    clear: both;
+
+  }
+
+  #ride {
+
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    /*font-size: 19em;*/
+    font-size: 10px;
+    font-weight: bold;
+    color: #16A6C9;
+    padding: 0;
+    position: absolute;
+    margin-top: 95px;
+    margin-left: 135px;
+  }
+
+
+
+
+} /* end media query */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Object Oriented CSS floats percents and scales */
+
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+  }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+
+
+
+.float-left {
+   float:left;
+   width:50%;
+   margin:0 20px 10px 0;
+}
+
+.float-right {
+   float:right;
+   width:50%;
+   margin:0 0 10px 20px;
+}
+
+.percent-95 {
+    width:95%;
+   height:auto;
+}
+
+.percent-90 {
+    width:90%;
+   height:auto;
+}
+
+.percent-85 {
+    width:85%;
+   height:auto;
+}
+
+.percent-80 {
+    width:80%;
+   height:auto;
+}
+
+.percent-75 {
+    width:75%;
+   height:auto;
+}
+
+.percent-70 {
+    width:70%;
+   height:auto;
+}
+
+.percent-65 {
+    width:65%;
+   height:auto;
+}
+
+.percent-60 {
+    width:60%;
+   height:auto;
+}
+
+.percent-55 {
+    width:55%;
+   height:auto;
+}
+
+.percent-50 {
+    width:50%;
+   height:auto;
+}
+
+.percent-45 {
+    width:45%;
+   height:auto;
+}
+
+.percent-40 {
+    width:40%;
+   height:auto;
+}
+
+.percent-35 {
+    width:35%;
+   height:auto;
+}
+
+.percent-30 {
+    width:30%;
+   height:auto;
+}
+
+.percent-25 {
+    width:25%;
+   height:auto;
+}
+
+.percent-20 {
+    width:20%;
+   height:auto;
+}
+
+.percent-15 {
+    width:15%;
+   height:auto;
+}
+
+.percent-10 {
+    width:10%;
+   height:auto;
+}
+
+.percent-5 {
+    width:5%;
+   height:auto;
+}
+
+.pad-10 {
+   padding:10%;
+}
+
+.pad-9 {
+   padding:9%;
+}
+
+.pad-8 {
+   padding:8%;
+}
+
+.pad-7 {
+   padding:7%;
+}
+
+.pad-6 {
+   padding:6%;
+}
+.pad-5 {
+   padding:5%;
+}
+
+.pad-4 {
+   padding:4%;
+}
+
+.pad-3 {
+   padding:3%;
+}
+
+.pad-2 {
+   padding:2%;
+}
+
+.pad-1 {
+   padding:1%;
+}
+
+.pad-0 {
+   padding:0;
+}
+
+.marg-10 {
+   margin:10%;
+}
+
+.marg-9 {
+   margin:9%;
+}
+
+.marg-8 {
+   margin:8%;
+}
+
+.marg-7 {
+   margin:7%;
+}
+
+.marg-6 {
+   margin:6%;
+}
+
+.marg-5 {
+   margin:5%;
+}
+
+.marg-4 {
+   margin:4%;
+}
+
+.marg-3 {
+   margin:3%;
+}
+
+.marg-2 {
+   margin:2%;
+}
+
+.marg-1 {
+   margin:1%;
+}
+
+.marg-0 {
+   margin:0;
+}
+
+.no-scale {
+   width:auto;
+   height:auto;
+}
+
+.marg-left {
+
+
+margin-left: 20%;
+
+
+}
+
+
+
+
+/* scale - emy26 */
+
+.scale-90 {
+   -webkit-transform: scale(.95);
+    -moz-transform: scale(.9);
+    -o-transform: scale(.9);
+    -ms-transform: scale(.9);
+    transform: scale(.9);
+}
+
+.scale-80 {
+   -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -o-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transform: scale(.8);
+}
+
+.scale-70 {
+   -webkit-transform: scale(.7);
+    -moz-transform: scale(.7);
+    -o-transform: scale(.7);
+    -ms-transform: scale(.7);
+    transform: scale(.7);
+}
+
+.scale-60 {
+   -webkit-transform: scale(.6);
+    -moz-transform: scale(.6);
+    -o-transform: scale(.6);
+    -ms-transform: scale(.6);
+    transform: scale(.6);
+}
+
+.scale-50 {
+   -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -o-transform: scale(.5);
+    -ms-transform: scale(.5);
+    transform: scale(.5);
+}
+
+.scale-40 {
+   -webkit-transform: scale(.4);
+    -moz-transform: scale(.4);
+    -o-transform: scale(.4);
+    -ms-transform: scale(.4);
+    transform: scale(.4);
+}
+
+.scale-30 {
+   -webkit-transform: scale(.3);
+    -moz-transform: scale(.3);
+    -o-transform: scale(.3);
+    -ms-transform: scale(.3);
+    transform: scale(.3);
+}
+
+.scale-20 {
+   -webkit-transform: scale(.2);
+    -moz-transform: scale(.2);
+    -o-transform: scale(.2);
+    -ms-transform: scale(.2);
+    transform: scale(.2);
+}
+
+.scale-10 {
+   -webkit-transform: scale(.1);
+    -moz-transform: scale(.1);
+    -o-transform: scale(.1);
+    -ms-transform: scale(.1);
+    transform: scale(.1);
+}
+
+
+
+
+
+
+/* fade element - emy26 */
+
+.fade {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)"; /* for IE8 in IE7 mode */
+    filter: alpha(opacity=100); /* for IE6-IE8 */
+    opacity: 1.0;
+
+   -webkit-transition: all .3s ease-in-out;
+   -moz-transition: all .3s ease-in-out;
+   -o-transition: all .3s ease-in-out;
+   -ms-transition: all .3s ease-in-out;
+   transition: all .3s ease-in-out;
+}
+
+.fade:hover {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=60)"; /* for IE8 in IE7 mode */
+    filter: alpha(opacity=60); /* for IE6-IE8 */
+    opacity: .6;
+}
+
+
+
+
+
+
+

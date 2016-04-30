@@ -1,0 +1,53 @@
+
+.btnRemove {
+    margin-bottom: 40px;
+}
+
+md-tabs .md-view {
+  background: #EEE;
+}
+
+.tab-text {
+    padding-top: 32px;
+    margin-bottom: 32px;
+}
+
+
+md-button {
+    display:block;
+}
+
+
+.tab1 {
+    background-color: #abd6e4;
+    height:300px;
+}
+.tab2 {
+    background-color: #94caa6;
+    height:300px;
+}
+.tab3 {
+    background-color: #c4b5a2;
+    height:300px;
+}
+.tab4 {
+    background-color: #e3cde8;
+    height:300px;
+}
+
+.title {
+  padding-top: 8px;
+  padding-right: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+}
+
+
+[layout-align] > * {
+ margin-left: 8px;
+}
+
+form > [layout] > * {
+  margin-left: 8px;
+}

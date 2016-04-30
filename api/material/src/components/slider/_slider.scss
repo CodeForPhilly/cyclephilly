@@ -1,0 +1,256 @@
+
+@keyframes sliderFocusThumb {
+  0% {
+    opacity: 0;
+    transform: scale(0.0);
+  }
+  50% {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@mixin slider-thumb-position($width: $slider-thumb-width, $height: $slider-thumb-height) {
+  position: absolute;
+  left: -$width / 2;
+  top: ($slider-height / 2) - ($height / 2);
+  width: $width;
+  height: $height;
+  border-radius: max($width, $height);
+}
+
+md-slider {
+
+  height: $slider-height;
+  position: relative;
+  display: block;
+  margin-left: 4px;
+  margin-right: 4px;
+
+  /**
+   * Track
+   */
+  .slider-track-container {
+    width: 100%;
+    position: absolute;
+    top: ($slider-height / 2) - ($slider-track-height) / 2;
+    height: $slider-track-height;
+  }
+  .slider-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: #C8C8C8;
+  }
+  .slider-track-fill {
+    background: #03A9F4;
+    transition: width 0.05s linear;
+  }
+  .slider-track-ticks {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
+
+  /**
+   * Slider thumb
+   */
+  .slider-thumb-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate3d(0,0,0);
+    transition: transform 0.1s linear;
+  }
+  .slider-thumb {
+    z-index: 1;
+
+    // Positioning the outer area of the thumb 6px bigger than it needs to be keeps
+    // the :after area being clipped by the background of the focus-thumb animation.
+    @include slider-thumb-position($slider-thumb-width + 6, $slider-thumb-height + 6);
+
+    // We render thumb in an :after selector to fix an obscure problem with the
+    // thumb being clipped by the focus-ring and focus-thumb while running the focus
+    // animation.
+    &:after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: $slider-thumb-width;
+      height: $slider-thumb-height;
+      border-radius: max($slider-thumb-width, $slider-thumb-height);
+      border: 3px solid $theme-light-blue;
+      background-color: $theme-light-blue;
+    }
+
+    transform: scale($slider-thumb-default-scale);
+    transition: all 0.1s linear;
+  }
+
+  /* The sign that's focused in discrete mode */
+  .slider-sign {
+
+    /* Center the children (slider-thumb-text) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    left: -($slider-sign-height / 2);
+    top: $slider-sign-top;
+    width: $slider-sign-width;
+    height: $slider-sign-height;
+    border-radius: max($slider-sign-height, $slider-sign-width);
+    background-color: $theme-light-blue;
+
+    transform: scale(0.4) translate3d(0,(-$slider-sign-top + 8) / 0.4,0);
+    transition: all 0.2s ease-in-out;
+
+    /* The arrow pointing down under the sign */
+    &:after {
+      position: absolute;
+      content: '';
+      left: -($slider-sign-width / 2 - $slider-arrow-width / 2);
+      border-radius: $slider-arrow-height;
+      top: 19px;
+      border-left: $slider-arrow-width / 2 solid transparent;
+      border-right: $slider-arrow-width / 2 solid transparent;
+      border-top: $slider-arrow-height solid $theme-light-blue;
+
+      opacity: 0;
+      transform: translate3d(0,-8px,0);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .slider-thumb-text {
+      z-index: 1;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  /**
+   * The border/background that comes in when focused in non-discrete mode
+   */
+  .slider-focus-thumb {
+    @include slider-thumb-position($slider-focus-thumb-width, $slider-focus-thumb-height);
+    display: none;
+    opacity: 0;
+    background-color: #C0C0C0;
+    animation: sliderFocusThumb 0.4s linear;
+  }
+  .slider-focus-ring {
+    @include slider-thumb-position($slider-focus-thumb-width, $slider-focus-thumb-height);
+    border: 2px solid #D6D6D6;
+    background-color: transparent;
+    transform: scale(0);
+    transition: all 0.2s linear;
+  }
+  .slider-disabled-thumb {
+    @include slider-thumb-position(
+      $slider-thumb-width + $slider-thumb-disabled-border * 2,
+      $slider-thumb-height + $slider-thumb-disabled-border * 2
+    );
+    transform: scale($slider-thumb-disabled-scale);
+    border: $slider-thumb-disabled-border solid white;
+    display: none;
+  }
+
+  &.slider-min {
+    .slider-thumb {
+      &:after {
+        background-color: white;
+      }
+    }
+    .slider-sign {
+      opacity: 0;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  /* Don't animate left/right while panning */
+  &.panning {
+    .slider-thumb-container,
+    .slider-track-fill {
+      transition: none;
+    }
+  }
+
+  &:not([discrete]) {
+    /* Hide the sign and ticks in non-discrete mode */
+    .slider-track-ticks,
+    .slider-sign {
+      display: none;
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        .slider-thumb {
+          transform: scale($slider-thumb-hover-scale);
+        }
+      }
+
+      &:focus,
+      &.active {
+        .slider-focus-thumb {
+          display: block;
+        }
+        .slider-focus-ring {
+          transform: scale(1);
+        }
+        .slider-thumb {
+          transform: scale($slider-thumb-focus-scale);
+        }
+      }
+    }
+  }
+
+  &[discrete] {
+    /* Hide the focus thumb in discrete mode */
+    .slider-focus-thumb,
+    .slider-focus-ring {
+      display: none;
+    }
+
+    &:not([disabled]) {
+      &:focus,
+      &.active {
+        .slider-sign,
+        .slider-sign:after {
+          opacity: 1;
+          transform: translate3d(0,0,0) scale(1.0);
+        }
+      }
+    }
+  }
+
+  &[disabled] {
+    .slider-track-fill {
+      display: none;
+    }
+    .slider-thumb {
+      transform: scale($slider-thumb-disabled-scale);
+      &:after {
+        border-color: #BEBEBE;
+      }
+    }
+    &:not(.slider-min) .slider-thumb {
+      &:after {
+        background-color: #BEBEBE;
+      }
+    }
+    .slider-disabled-thumb {
+      display: block;
+    }
+  }
+}

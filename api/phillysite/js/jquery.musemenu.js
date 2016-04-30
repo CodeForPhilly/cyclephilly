@@ -1,0 +1,26 @@
+/*
+ ADOBE CONFIDENTIAL
+ ___________________
+
+ Copyright 2011 Adobe Systems Incorporated
+ All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and may be covered by U.S. and Foreign Patents,
+ patents in process, and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+*/
+(function(a){a.fn.museMenu=function(){return this.each(function(){var b=a(this),c="absolute",d,f,g,i,h,k;if(b.css("position")=="fixed"){c="fixed";k=b;var j=Muse.Utils.getStyleSheetRuleById(Muse.Utils.getPageStyleSheet(),this.id);d=j?Muse.Utils.getRuleProperty(j,"top"):b.css("top");f=j?Muse.Utils.getRuleProperty(j,"left"):b.css("left");g=j?Muse.Utils.getRuleProperty(j,"right"):b.css("right");i=j?Muse.Utils.getRuleProperty(j,"bottom"):b.css("bottom");h=parseInt(b.css("margin-left"))}else for(j=b.parent();j.length>
+0&&j.attr("id")!="page";){if(j.css("position")=="fixed"){c="fixed";k=j;var l=j.offset(),m=b.offset(),o=Muse.Utils.getStyleSheetRuleById(Muse.Utils.getPageStyleSheet(),j.attr("id")),q=o?Muse.Utils.getRuleProperty(o,"top"):j.css("top"),r=o?Muse.Utils.getRuleProperty(o,"left"):j.css("left"),n=o?Muse.Utils.getRuleProperty(o,"right"):j.css("right"),o=o?Muse.Utils.getRuleProperty(o,"bottom"):j.css("bottom");d=q&&q!="auto"?parseInt(q)+(m.top-l.top):q;f=r&&r!="auto"&&r.indexOf("%")==-1?parseInt(r)+(m.left-
+l.left):r;g=n&&n!="auto"&&n.indexOf("%")==-1?parseInt(n)+(l.left+j.width())-(m.left+b.width()):n;i=o&&o!="auto"?parseInt(o)+(l.top+j.height())-(m.top+b.height()):o;h=parseInt(j.css("margin-left"))+(r&&r.indexOf("%")!=-1?m.left-l.left:0);break}j=j.parent()}var u=a(),A=!1,D=b.find(".MenuItemContainer"),j=b.find(".MenuItem"),l=b.find(".SubMenu").add(j),v;l.on("mouseover",function(){A=!0});l.on("mouseleave",function(){A=!1;setTimeout(function(){A===!1&&(D.each(function(){a(this).data("hideSubmenu")()}),
+u=a())},300)});D.on("mouseleave",function(b){var c=a(b.target),d=c.closest(".SubMenu");v&&clearTimeout(v);d.length>0&&(v=setTimeout(function(){d.find(".MenuItemContainer").each(function(){a(this).data("hideSubmenu")()});u=c.closest(".MenuItemContainer").data("$parentMenuItemContainer")},300))});D.on("mouseenter",function(){clearTimeout(v)});j.each(function(){var j=a(this),l=j.siblings(".SubMenu"),m=j.closest(".MenuItemContainer"),p=m.parentsUntil(".MenuBar").filter(".MenuItemContainer").length===
+0,o;if(p&&l.length>0)j.data("offsetContainer",a("<div style='position:"+c+"' class='MenuBar popup_element'></div>").hide().appendTo("body")),l.show(),o=l.position().top,l.hide();m.data("$parentMenuItemContainer",m.parent().closest(".MenuItemContainer")).data("showSubmenuOnly",function(){if(p&&l.length>0){var a=j.data("offsetContainer");if(c!="fixed"){var n=m.offset();a.appendTo("body").css({left:n.left,top:n.top}).append(l).show()}else{var n=m.position(),q=0,r=0;g&&g!="auto"&&(q=b.outerWidth()-n.left);
+i&&i!="auto"&&(r=o);a.appendTo("body").css({left:f,top:d,right:g,bottom:i,marginLeft:h+n.left,marginRight:q,marginTop:n.top,marginBottom:r}).append(l).show()}k&&a&&k.data("hasScrollEffect")===!0&&a.cloneScrollEffectsFrom(k)}l.show();l.find(".SubMenu").hide()}).data("hideSubmenu",function(){var a=j.data("offsetContainer");a&&a.data("hasScrollEffect")===!0&&a.clearScrollEffects();l.hide()}).data("isDescendentOf",function(a){for(var b=m.data("$parentMenuItemContainer");b.length>0;){if(a.index(b)>=0)return!0;
+b=b.data("$parentMenuItemContainer")}return!1});var n=function(){var b=u;b.length==0?m.data("showSubmenuOnly")():m.data("$parentMenuItemContainer").index(b)>=0?m.data("showSubmenuOnly")():m.siblings().index(b)>=0?(b.data("hideSubmenu")(),m.data("showSubmenuOnly")()):b.data("isDescendentOf")(m)?m.data("showSubmenuOnly")():b.data("isDescendentOf")(m.siblings(".MenuItemContainer"))?(m.siblings(".MenuItemContainer").each(function(){a(this).data("hideSubmenu")()}),m.data("showSubmenuOnly")()):b.get(0)==
+m.get(0)&&m.data("showSubmenuOnly")();u=m},q=null;j.on("mouseenter",function(){j.data("mouseEntered",!0);q=setTimeout(function(){n()},200);j.one("mouseleave",function(){clearTimeout(q);j.data("mouseEntered",!1)})});l.length&&(j.attr("aria-haspopup",!0),Muse.Browser.Features.Touch&&(j.click(function(){return l.is(":visible")}),a(document.documentElement).on(Muse.Browser.Features.Touch.End,Muse.Browser.Features.Touch.Listener(function(b){!l.is(":visible")&&a(b.target).closest(m).length>0?(b.stopPropagation(),
+Muse.Utils.redirectCancelled=!0,setTimeout(function(){Muse.Utils.redirectCancelled=!1},16),j.data("mouseEntered")&&setTimeout(function(){m.data("showSubmenuOnly")()},200)):l.is(":visible")&&a(b.target).closest(l).length==0&&a(b.target).closest(m).length==0&&m.data("hideSubmenu")()}))))});j.filter(".MuseMenuActive").each(function(){for(var b=a(this).closest(".MenuItemContainer").data("$parentMenuItemContainer");b&&b.length>0;)b.children(".MenuItem").addClass("MuseMenuActive"),b=b.data("$parentMenuItemContainer")})})}})(jQuery);

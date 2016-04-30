@@ -1,0 +1,33 @@
+<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.20833e0b.css"> <link rel="stylesheet" href="styles/main.5391ca2a.css">  <body ng-app="tripsApp" data-spy="scroll" data-offset="0" data-target="#theMenu"> <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <nav class="menu" id="theMenu"> <div class="menu-wrap"> <h1 class="logo"><a href="#home"><img style="max-width:35px; margin-top: -7px" src="http://cyclephilly.org/phillysite/img/logo.png"></a></h1> <i class="icon-remove menu-close"></i> <a href="#"><i class="icon-facebook"></i></a> <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-dribbble"></i></a> <a href="#"><i class="icon-envelope"></i></a> </div> <!-- Menu button --> <div id="menuToggle"><i class="icon-reorder"></i></div> </nav> <!-- Add your site or application content here --> <!-- ========== Map SECTION ========== --> <section id="home" name="home"></section> <div id="headerwrap" style=""> <div class="container" id="home-content"> <div class="head-fade"></div> <header class="main-header"> <img style="max-width:55px; margin-top: -7px" src="http://cyclephilly.org/phillysite/img/logo.png"> </header> <section class="city-map js-city-map"> <div id="map_canvas" ng-controller="MapsCtrl"> <google-map center="map.center" zoom="map.zoom" draggable="true" options="options"></google-map> </div> <form class="map-city-selected"> <div class="trip-list js-trip-list open"> <a class="title-toggle js-title-toggle" href="#"> Recent Trips <span class="icon icon-plus"></span> <span class="icon icon-minus"></span> </a> <div class="content"> <div class="loading"></div> <!--  <input type="text" class="start address"
+                       placeholder="Enter Start Location" />
+                <input type="text" class="end address"
+                       placeholder="Enter Destination" />
+
+                <p class="pin start icon-pin"></p>
+                <p class="pin end icon-pin"></p>
+
+                <p class="address-error">
+                  Start or End location<br /> not found.
+                </p>
+                <p class="route-error">
+                  There was a problem getting a quote for this route.
+                </p>
+                <p class="rate-limit-error">
+                  We cannot generate data at this time. Please try again later.
+                </p>
+ --> <ul class="trips js-trips"> <li class="clone"> <p class="vehicle">Commute</p> <p class="txt-fare">09-12-2014</p> </li> </ul> <a href="#" class="cta get-estimate">Show All Trips</a> <a href="#" class="cta clear-estimate">Clear Map</a> </div> </div> <!-- <div class='city-selected js-city-selected'> 
+              <p>
+                Philadelphia
+                <a class='close-button icon-close' href="/cities"></a>
+              </p>
+            </div>--> </form> </section> </div><!-- /container --> </div><!-- /headerwrap --> <!-- ========== ABOUT SECTION ========== --> <section id="homeabout" name="homeabout"></section> <div id="f"> <div class="container"> <div class="row"> <div ng-view=""></div> </div> </div><!-- /container --> </div><!-- /f --> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');</script> <!--[if lt IE 9]>
+    <script src="scripts/oldieshim.a466b7b1.js"></script>
+    <![endif]--> <script src="scripts/vendor.21bf498f.js"></script> <script src="scripts/scripts.d1b3f29c.js"></script>  

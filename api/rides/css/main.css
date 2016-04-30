@@ -1,0 +1,333 @@
+#status {
+ position: absolute;
+top: 600px;
+  left: 35%;
+ 
+color: #fff;
+
+  font-family: Arial, sans-serif;
+
+z-index: 10000;
+height:150px;
+width: 150px;
+background: #16A6C9;
+border-radius: 13px;
+visibility: hidden;
+}
+
+.marg-loading {
+
+
+margin-left: 29px;
+
+}
+
+.marg-logo {
+
+
+margin-left: 20px;
+margin-top: 10px;
+}
+
+
+
+
+#status1 {
+  position: fixed;
+  top: 100px;
+  left: 45%;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background: #272727;
+  visibility: hidden;
+}
+
+
+.circle1 {
+  position: relative;
+  top: 0px;
+  width: 0px;
+  height: 0px;
+ 
+  border-right: 60px solid transparent;
+  border-top: 60px solid #1ba7f2;
+  border-left: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  -moz-transform:rotate(320deg);
+  -webkit-transform:rotate(320deg);
+  -o-transform:rotate(320deg);
+  -ms-transform:rotate(320deg);
+  animation: spin1 0.1s infinite linear;
+  -webkit-animation: spin1 0.2s infinite linear;
+  
+}
+
+
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+	display: block;
+	float:left;
+/*   margin: 1% 0 1% 1.6%; */
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+
+
+/*  GRID OF FIVE   ============================================================================= */
+
+	
+.span_5_of_5 {
+	width: 100%;
+}
+
+.span_4_of_5 {
+  	width: 79.68%; 
+}
+
+.span_3_of_5 {
+  	width: 59.36%; 
+}
+
+.span_2_of_5 {
+  	width: 39.04%;
+}
+
+.span_1_of_5 {
+  	width: 18.72%;
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span_5_of_5 {
+		width: 100%; 
+	}
+	.span_4_of_5 {
+		width: 100%; 
+	}
+	.span_3_of_5 {
+		width: 100%; 
+	}
+	.span_2_of_5 {
+		width: 100%; 
+	}
+	.span_1_of_5 {
+		width: 100%; 
+	}
+}
+
+
+html, body {
+	
+height:100%;
+font-family: Arial, Helvetica, sans-serif;
+z-index: 1;
+
+}
+
+.nav {
+
+  color: #ffffff;
+  padding: 5px;
+  font-size: 1.5em;
+float:right;
+
+}
+
+#map {
+
+height:100%;
+clear: both;
+
+}
+
+.cyclePHL_title {
+
+	z-index: 10;
+background-color: #D31208; /* red */
+
+
+	padding:5px;
+}
+
+#cycleTitleText a {
+	color: #ffffff;
+
+padding: 5px;
+	font-size: 2.5em;
+
+}
+
+.chosenBox {
+
+z-index: 25;
+background-color: rgb(0,0,0);
+
+padding: 3px;
+
+}
+
+.smallTitle {
+
+font-size: 1em;
+
+
+}
+
+#filterText {
+
+font-size:1.5em;
+color:#ffffff;
+padding: 5px;
+margin-left:10px;
+
+}
+
+/* leaflet control up */
+
+.leaflet-control-up-link {
+  background-image: url(arrow.png);
+}
+
+.leaflet-control-up {
+   background-color: rgba(0, 0, 0, 0.25); 
+
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
+.leaflet-control-up a {
+  /* background-color: rgba(255, 255, 255, 0.75); */
+   background-color: #ffffff;
+
+  
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.leaflet-control-up a:first-child {
+  margin-top: 0;
+}
+
+
+
+/* leaflet control down */
+
+.leaflet-control-down-link {
+  background-image: url(arrow_down.png);
+}
+
+.leaflet-control-down {
+   background-color: rgba(0, 0, 0, 0.25); 
+
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
+.leaflet-control-down a {
+  /* background-color: rgba(255, 255, 255, 0.75); */
+   background-color: #ffffff;
+
+  
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.leaflet-control-down a:first-child {
+  margin-top: 0;
+}
+
+
+.float-left {
+float: left;
+width: 50%;
+margin: 0 20px 10px 0;
+}
+
+.float-right {
+float: right;
+width: 50%;
+margin: 0 0 10px 20px;
+}
+
+/*clearfix*/
+.row:after, ul.buttons:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}.row,ul.buttons{display:inline-block;}/*  \*/ * html .row, * html ul.buttons{height:1%;} .row, ul.buttons{display: block;}/*  */
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+  }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+#ca_data_selector {
+
+width: 250px;
+
+}
+
+
+
+

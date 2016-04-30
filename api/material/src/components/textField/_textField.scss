@@ -1,0 +1,133 @@
+form {
+}
+
+label {
+  display: block;
+  font-size: $tff-font-size;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  display: block;
+  border-width: 0 0 1px 0;
+  padding-top:2px;
+  line-height: $tff-line-height;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+input, textarea {
+  @include input-placeholder($tff-placeholder-color);
+  background: none;
+}
+
+// Light-Theme
+md-input-group,
+.md-input-group {
+  margin: $tff-margin;
+
+  position: relative;
+  display:  block;
+
+  label {
+    z-index: 1;
+    pointer-events: none;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+      cursor: text;
+    }
+  }
+
+  @include text-hint( $tff-hint-normal, large, $tff-transition );
+  @include text-field( $tff-input-normal, $tff-line-normal, $tff-transition );
+
+
+  &.md-input-focused {
+    @include text-hint( $tff-hint-focused, small );
+    @include text-field( $tff-input-normal,$tff-line-focused, false, $tff-line-focused-width );
+  }
+
+  &.md-input-has-value {
+    @include text-hint( $tff-hint-focused, small );
+
+    &:not(.md-input-focused) {
+      @include text-hint( $tff-hint-normal, small );
+    }
+  }
+
+  &[disabled] {
+
+    @include text-field( $tff-input-disabled, $tff-line-disabled, false, $tff-line-disabled-width );
+    input, textarea {
+      @include text-dashed-line( $tff-line-dot-width, $tff-line-dot-size, $tff-line-dashed );
+      pointer-events: none;
+      tabindex : -1;
+    }
+
+    @include text-hint( $tff-hint-disabled, small );
+
+    *:not(.md-input-has-value) {
+      @include text-hint( $tff-hint-disabled, large );
+    }
+
+  }
+}
+
+
+// Dark Theme
+.dark md-input-group,
+.dark .md-input-group {
+
+  @include text-hint( $tff-hint-normal-dark, large, $tff-transition );
+  @include text-field( $tff-input-normal-dark, $tff-line-normal-dark, $tff-transition );
+
+
+  &.md-input-focused {
+    @include text-hint( $tff-hint-focused-dark, small );
+    @include text-field( $tff-input-focused-dark,$tff-line-focused-dark, false, $tff-line-focused-width );
+  }
+
+  &.md-input-has-value {
+    @include text-hint( $tff-hint-focused-dark, small );
+
+    &:not(.md-input-focused) {
+      @include text-hint( $tff-hint-normal-dark, small );
+    }
+  }
+
+  &[disabled] {
+
+    @include text-field( $tff-input-disabled-dark, $tff-line-disabled-dark, false, $tff-line-disabled-width );
+    input, textarea {
+      @include text-dashed-line( $tff-line-dot-width, $tff-line-dot-size, $tff-line-dashed-dark );
+      pointer-events: none;
+      tabindex : -1;
+    }
+
+    @include text-hint( $tff-hint-disabled-dark, small );
+
+    *:not(.md-input-has-value) {
+      @include text-hint( $tff-hint-disabled-dark, large );
+    }
+
+  }
+
+}
+
+.theme-dark-tff { @include theme-bg-and-color(#333, #999); }

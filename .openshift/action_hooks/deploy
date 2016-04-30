@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#export COMPOSER_HOME="$OPENSHIFT_DATA_DIR/.composer"
+
+# if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+#     curl -s https://getcomposer.org/installer | php -- --install-dir=$OPENSHIFT_DATA_DIR
+# else
+#     	php $OPENSHIFT_DATA_DIR\composer.phar self-update
+# fi
+
+unset GIT_DIR
+
+echo "running deploy scripts"
+ln -sf $OPENSHIFT_DATA_DIR\assets $OPENSHIFT_REPO_DIR/php/
+# ln -sf $OPENSHIFT_DATA_DIR\cache $OPENSHIFT_REPO_DIR/php/
+#link assets and cache folders to the persistent data directories
+ln -sf $OPENSHIFT_DATA_DIR\assets $OPENSHIFT_REPO_DIR/assets
+ln -sf $OPENSHIFT_DATA_DIR\cache $OPENSHIFT_REPO_DIR/cache
+
+# php $OPENSHIFT_REPO_DIR\php/framework/cli-script.php dev/build flush=1
+# php $OPENSHIFT_REPO_DIR\php/framework/cli-script.php jsonservice/Indego/sync
+
+# php $OPENSHIFT_REPO_DIR\php/framework/cli-script.php jsonservice/Trip/count start=01-01-2015

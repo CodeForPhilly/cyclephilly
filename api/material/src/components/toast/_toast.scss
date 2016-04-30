@@ -1,0 +1,132 @@
+
+md-toast {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+
+  background: #323232;
+  color: #f1f1f1;
+  min-height: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: default;
+
+  position: fixed;
+  max-width: 879px;
+  max-height: 40px;
+
+  z-index: $z-index-toast;
+
+  md-button {
+    color: white;
+  }
+
+  &.capsule {
+    border-radius: 24px;
+  }
+
+  opacity: 1;
+  transform: translate3d(0,0,0) rotateZ(0deg);
+  transition: 0.2s linear;
+  transition-property: transform, opacity;
+  
+  /* Transition differently when swiping */
+  &.swipeleft,
+  &.swiperight,
+  &.swipeup,
+  &.swipedown {
+    transition: 0.15s ease-out;
+  }
+
+  &.ng-enter {
+    transform: translate3d(0, 100%, 0);
+    &.top {
+      transform: translate3d(0, -100%, 0);
+    }
+    opacity: 0;
+    &.ng-enter-active {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+    &.top {
+      transform: translate3d(0, -100%, 0);
+    }
+    &.swipeleft {
+      transform: translate3d(-100%, 0%, 0);
+    }
+    &.swiperight {
+      transform: translate3d(100%, 0%, 0);
+    }
+  }
+}
+
+.toast-action {
+  line-height: 19px;
+  color: #eeff41;
+  padding-left: 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  float: right;
+}
+
+@media (max-width: $layout-breakpoint-sm) {
+  md-toast {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-radius: 0;
+    bottom: 0;
+    &.top {
+      bottom: auto;
+      top: 0;
+    }
+  }
+}
+@media (min-width: $layout-breakpoint-sm) {
+  md-toast {
+    min-width: 288px;
+    &.bottom {
+      bottom: $toast-margin;
+    }
+    &.left {
+      left: $toast-margin;
+    }
+    &.right {
+      right: $toast-margin;
+    }
+    &.top {
+      top: $toast-margin;
+    }
+
+    /* 
+     * When the toast doesn't take up the whole screen,
+     * make it rotate when the user swipes it away
+     */
+    &.ng-leave.ng-leave-active {
+      &.swipeleft {
+        transform: translate3d(-100%, 25%, 0) rotateZ(-15deg);
+      }
+      &.swiperight {
+        transform: translate3d(100%, 25%, 0) rotateZ(15deg);
+      }
+      &.top {
+        &.swipeleft {
+          transform: translate3d(-100%, 0, 0) rotateZ(-15deg);
+        }
+        &.swiperight {
+          transform: translate3d(100%, 0, 0) rotateZ(15deg);
+        }
+      }
+    }
+  }
+}

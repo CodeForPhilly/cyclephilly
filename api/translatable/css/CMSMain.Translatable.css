@@ -1,0 +1,45 @@
+ul.tree span.untranslated a:link, 
+ul.tree span.untranslated a:hover, 
+ul.tree span.untranslated a:visited {
+	color: #ccc
+}
+
+.right form .createTranslationButton .middleColumn {
+	background: none;
+}
+
+.right form#Form_EditForm div.createTranslation {
+	margin-left: 0;
+}
+
+.CMSMain #Form_LangForm #Locale .middleColumn,
+.CMSMain #Form_LangForm #Locale label {
+	display: inline-block;
+}
+
+.CMSMain #Form_LangForm .Actions {
+	display: none;
+}
+
+/* Language dropdown has its own spacing */
+.cms-content-toolbar {
+	margin-bottom: 7px;
+}
+
+.originallang_holder {
+	border-bottom: 1px solid rgba(201, 205, 206, 0.8);
+    box-shadow: 0 1px 0 rgba(244, 245, 245, 0.8);
+	margin: 0 0 8px;
+    padding: 0 0 7px;
+}
+
+.originallang_holder .field {
+	border-bottom: none;
+	box-shadow: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.originallang_holder .originallang {
+	font-size: 90%;
+}

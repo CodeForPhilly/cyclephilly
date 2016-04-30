@@ -1,0 +1,49 @@
+---
+Name: mysite
+After: 'framework/*','cms/*'
+---
+# YAML configuration for SilverStripe
+# See http://doc.silverstripe.org/framework/en/topics/configuration
+# Caution: Indentation through two spaces, not tabs
+SSViewer:
+  theme: 'cycle'
+  
+Injector:
+  WebserviceAuthenticator:
+    properties:
+      allowPublicAccess: 1
+---
+Name: silverstripe-opauth
+After: 'framework/*','cms/*'
+---
+# see the Opauth docs for the config settings - https://github.com/opauth/opauth/wiki/Opauth-configuration#configuration-array
+OpauthAuthenticator:
+  opauth_settings:
+    #Register your strategies here
+    #Including any extra config
+    Strategy:
+      Facebook:
+        app_id: '212176285648553'
+        app_secret: '652a8d968b3fe586e8166dc430ae74b9'
+        scope: 'public_profile email publish_actions'
+      Google:
+        client_id: '492508605016-q8l7cqragd25m79k9pem59kfc8h5g8ov.apps.googleusercontent.com'
+        client_secret: 'XFmUK0vRbB4ZYSFijNrM9_bO'
+        access_type: 'offline'
+        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/tracks'
+    security_salt: 'cdamagedBike'
+    security_iteration: 500
+    security_timeout: '2 minutes'
+    callback_transport: 'post'
+#Configuration for the Identity-Member mapping
+OpauthIdentity:
+  member_mapper:
+    Facebook:
+      FirstName: 'info.first_name'
+      Surname: 'info.last_name'
+      Locale: 'raw.locale'
+    Google:
+      FirstName: 'info.first_name'
+      Surname: 'info.last_name'
+      Email: 'info.email'
+      Locale: ['OpauthResponseHelper', 'get_google_locale']

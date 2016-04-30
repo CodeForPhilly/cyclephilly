@@ -1,0 +1,545 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Minimal - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+body {
+  background-color: #f2f2f2;
+    font-family: 'EB Garamond', serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #E6E6E6;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #f85c37;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+#headerwrap {
+	background: url(../img/header-bg.jpg) no-repeat center top;
+	margin-top: -10px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 700px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+	color: #ffffff;
+margin-top: 90px;
+padding-bottom: 30px;
+letter-spacing: 8px;
+font-size: 100px;
+font-weight: bold;
+text-shadow: 2px 2px 2px #000;
+}
+
+#headerwrap h3 {
+	color: white;
+	font-size: 30px;
+	font-weight: 100;
+    font-family: 'EB Garamond', serif;
+    font-style: oblique;
+}
+
+#headerwrap .logo {
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 15px;
+	/*position: fixed;*/
+width: 100%;
+height: 165px;
+background: -moz-linear-gradient(top,  rgba(142,142,142,0.7) 0, rgba(192,192,192,0.3) 70%, rgba(214,214,214,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0,rgba(142,142,142,0.7)), color-stop(70%,rgba(192,192,192,0.3)), color-stop(100%,rgba(214,214,214,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b38e8e8e', endColorstr='#00d6d6d6',GradientType=0 ); /* IE6-9 */
+
+position: absolute;
+top: 0;
+left: 0;
+z-index: 4;
+}
+
+#headerwrap .head-fade {
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 15px;
+	/*position: fixed;*/
+width: 100%;
+height: 125px;
+background: -moz-linear-gradient(top,  rgba(142,142,142,0.7) 0, rgba(192,192,192,0.3) 70%, rgba(214,214,214,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0,rgba(142,142,142,0.7)), color-stop(70%,rgba(192,192,192,0.3)), color-stop(100%,rgba(214,214,214,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(142,142,142,0.7) 0,rgba(192,192,192,0.3) 70%,rgba(214,214,214,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b38e8e8e', endColorstr='#00d6d6d6',GradientType=0 ); /* IE6-9 */
+
+position: absolute;
+top: 0;
+left: 0;
+z-index: 4;
+}
+
+.main-header{
+	position: fixed;
+right: 0px;
+top: 0px;
+width: 100%;
+padding: 15px 20px 10px 20px;
+z-index: 5;
+line-height: 10px;
+color: #fff;
+background-color: rgba(238, 238, 238, 0.53);
+border-bottom: 1px solid #adadad;
+}
+
+.city-map {
+width: 100%;
+height: 715px;
+position: relative;
+z-index: 3;
+}
+
+.city-map .map-holder {
+width: 100%;
+height: 714px;
+position: absolute;
+top: 2px;
+left: 0;
+}
+
+.city-map .map-city-selected {
+width: 300px;
+position: absolute;
+left: 50px;
+bottom: 50px;
+z-index: 9999;
+}
+
+.city-map .map-city-selected .trip-list {
+padding: 5px 5px 0 5px;
+background-color: rgba(30,186,214,.5);
+position: relative;
+}
+
+.city-search, .city-selected {
+position: relative;
+padding: 5px;
+background-color: rgba(30,186,214,.5);
+}
+
+.city-map .map-city-selected .content {
+/*display: none;*/
+height: 322px;
+background-color: #f1f1f1;
+border: 1px solid #070716;
+position: relative;
+}
+
+.city-map .map-city-selected .trip-list.open {
+height: 390px;
+}
+
+.city-map .map-city-selected .trip-list.open .title-toggle {
+background-color: #fff;
+border: 1px solid #070716;
+border-bottom: none;
+color: #070716;
+}
+
+.city-map .map-city-selected .title-toggle {
+display: inline-block;
+width: 100%;
+padding: 20px;
+background-color: #1fbad6;
+position: relative;
+font-size: 12px;
+color: #fff;
+text-transform: uppercase;
+}
+
+.city-map .map-city-selected .title-toggle .icon {
+position: absolute;
+top: 22px;
+right: 19px;
+font-size: 12px;
+}
+
+.city-map .map-city-selected .fare-quote.open .title-toggle .icon-minus {
+display: block;
+}
+
+.city-map .map-city-selected .title-toggle .icon.icon-minus {
+display: none;
+right: 23px;
+font-size: 9px;
+}
+
+.city-map .map-city-selected .content .address {
+width: 100%;
+padding: 18px 0 18px 37px;
+border: none;
+border-bottom: 1px solid #c7c7c7;
+font-size: 11px;
+color: #070716;
+}
+
+.city-map .map-city-selected .content .pin {
+padding: 10px;
+position: absolute;
+top: 7px;
+left: 7px;
+font-size: 14px;
+color: #27aa0b;
+}
+
+.city-map .map-city-selected .content .pin.end {
+top: 58px;
+color: #f32f00;
+}
+
+.city-map .map-city-selected .content .address-error, .city-map .map-city-selected .content .route-error, .city-map .map-city-selected .content .rate-limit-error {
+display: none;
+padding: 20px;
+font-size: 12px;
+color: #f32f00;
+text-align: center;
+text-transform: uppercase;
+line-height: 20px;
+}
+
+.city-map .map-city-selected .trips {
+display: none;
+padding-top: 15px;
+list-style: none outside none;
+}
+
+
+
+.icon-pin:before {
+content: "\e026";
+}
+/* Footer Wrap */
+
+#f {
+	background: #1a1a1a;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	text-align: center
+}
+
+#f h3 {
+	color: white;
+	font-size: 28px;
+	font-weight: 700;
+	letter-spacing: 1px;	
+}
+
+#f i {
+	font-size: 8px;
+	color: #fff;
+    padding: 3px;
+}
+
+#f p {
+	font-size: 20px;
+	color: #f2f2f2;
+}
+
+#f img {
+	text-align: center;
+}
+
+.mt {
+margin-top: 50px;
+}
+
+.centered {
+text-align: center;
+}
+
+#portfoliowrap,#contactwrap {
+display: block;
+margin-top: 80px;
+margin-bottom: 80px;
+background: #ADADAD;
+background: rgb(173,173,173); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(173,173,173,1) 0%, rgba(201,201,201,1) 0%, rgba(173,173,173,1) 9%, rgba(173,173,173,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(173,173,173,1)), color-stop(0%,rgba(201,201,201,1)), color-stop(9%,rgba(173,173,173,1)), color-stop(100%,rgba(173,173,173,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(173,173,173,1) 0%,rgba(201,201,201,1) 0%,rgba(173,173,173,1) 9%,rgba(173,173,173,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(173,173,173,1) 0%,rgba(201,201,201,1) 0%,rgba(173,173,173,1) 9%,rgba(173,173,173,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(173,173,173,1) 0%,rgba(201,201,201,1) 0%,rgba(173,173,173,1) 9%,rgba(173,173,173,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(173,173,173,1) 0%,rgba(201,201,201,1) 0%,rgba(173,173,173,1) 9%,rgba(173,173,173,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adadad', endColorstr='#adadad',GradientType=0 ); /* IE6-9 */
+
+}
+
+#portfoliowrap h1,#contactwrap h1 {
+font-weight: 300;
+text-align: center;
+margin-bottom: 50px;
+}
+
+#portfoliowrap p,#contactwrap p {
+color: #000; 
+}
+
+.proc {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: solid 2px transparent;
+}
+
+#portfoliowrap .proc:hover {
+	background-color: #eee;
+	border-bottom: solid 2px #2f2f2f
+}
+
+#portfoliowrap i {
+font-size: 50px;
+}
+
+.sep {
+background-attachment: fixed;
+background-position: 50% 0;
+background-repeat: no-repeat;
+height: 450px;
+position: relative;
+}
+
+/* MENU CONF*/
+
+.menu {
+	position: fixed;
+	right: -200px;
+	width: 260px;
+	height: 100%;
+	top: 0;
+	z-index: 10;
+	text-align: left;
+}
+
+.menu.menu-open {
+	right: 0px;
+}
+
+.menu-wrap {
+position: absolute;
+top: 0;
+left: 60px;
+background: #3D3D3D;
+width: 200px;
+height: 100%;
+}
+
+.menu h1.logo a {
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	line-height: 40px;
+	text-transform: uppercase;
+	color: #ffffff;
+	margin-top: 20px;
+}
+
+.menu h1.logo a:hover {
+	color: #f85c37;
+}
+
+.menu img.logo {
+	margin: 20px 0;
+	max-width: 160px;
+}
+
+.menu a {
+	margin-left: 20px;
+	color: #808080;
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 40px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.menu a:hover {
+	color: #ffffff;
+}
+
+.menu a:active {
+	color: #ffffff;
+}
+
+.menu a > i {
+	float: left;
+	display: inline-block;
+	vertical-align: middle; 
+	text-align: left;
+	width: 25px;
+	font-size: 14px;
+	line-height: 40px;
+	margin: 25px 2px;
+}
+
+.menu-close {
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	font-size: 14px;
+	color: #808080;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	top: 20px;
+	right: 5px;
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+.menu-close:hover {
+	color: #ffffff;
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+/* Push the body after clicking the menu button */
+.body-push {
+	overflow-x: hidden;
+	position: relative;
+	left: 0;
+}
+
+.body-push-toright {
+	left: 200px;
+}
+
+.body-push-toleft {
+	left: -200px;
+}
+
+.menu,
+.body-push {
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		 -o-transition: all .3s ease;
+			transition: all .3s ease;
+}
+
+#menuToggle {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	z-index: 11;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	background: rgba(0,0,0,0.25);
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+#menuToggle:hover {
+	color: #ffffff;
+	background: rgba(0,0,0,0.2);
+	-webkit-transition: all .1s ease-in-out;
+	   -moz-transition: all .1s ease-in-out;
+		-ms-transition: all .1s ease-in-out;
+		 -o-transition: all .1s ease-in-out;
+			transition: all .1s ease-in-out;
+}
+
+

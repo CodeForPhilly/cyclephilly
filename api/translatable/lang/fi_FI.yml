@@ -1,0 +1,22 @@
+fi_FI:
+  CMSMain:
+    LANGUAGEDROPDOWNLABEL: Kieli
+  CMSMain_left:
+    GO: Siirry
+  Form:
+    LANGAOTHER: 'Muut kielet'
+    LANGAVAIL: 'Saatavilla olevat kielet'
+  Translatable:
+    ALLCREATED: 'Kaikki sallitut kielet on luotu'
+    CREATE: 'Luo uusi käännös'
+    CREATEBUTTON: Luo
+    EXISTING: 'Olemassa olevat käännökset'
+    NEWLANGUAGE: 'Uusi kieli'
+    NOTICENEWPAGE: 'Tallenna tämä sivu ennen käännöksen luontia'
+    TRANSLATEALLPERMISSION: 'Käännä kaikille saatavilla oleville kielille'
+    TRANSLATEPERMISSION: 'Käännä %s'
+    TRANSLATEVIEWLANGS: 'Näytä kielet'
+    TRANSLATIONS: Käännökset
+  Translatable_Transform:
+    OriginalCheckboxLabel: 'Alkuperäinen: {value}'
+    OriginalFieldLabel: 'Alkuperäinen {title}'

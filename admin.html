@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/icomoon/style.css">
+    <link rel="stylesheet" href="assets/app.css"/>
+    <link rel="stylesheet" href="assets/style.css"/>
+  </head>
+
+  <body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')">
+    <header class="nav-header md-whiteframe-z2" layout="column" layout-align="center center" layout-padding>
+      <a ng-href="#/" class="docs-logo" href="#/">
+        <img src="assets/logo.png" style="width:50px">
+        
+      </a>
+      <h2 class="docs-logotype md-heading">Transporation Data Sets</h2>
+    </header>
+    
+
+    <md-list>
+    <md-list-item ng-click="ul.logOut()" ng-hide="ul.loggedOut">
+
+    <md-icon md-font-icon="icon-exit"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+    <p>Logout</p>
+    <img ng-src="{{ul.user.image}}" ng-style="{height: '24px'}" />
+
+    
+  </md-list-item>
+      <md-subheader class="md-no-sticky">My Top Data Sets</md-subheader>
+  <md-list-item ng-repeat="set in ul.user.favorites | limitTo:3" ng-click="goToDatSet(set.name, $event)">
+    <img alt="{{ set.name }}" ng-src="{{ set.img }}" class="md-avatar" />
+    <p>{{ set.name }}</p>
+    <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': set.newMessage}"></md-icon>
+  </md-list-item>
+  <md-list-item ng-click="ul.githubLogin()" ng-show="ul.loggedOut">
+    <md-icon md-font-icon="icon-github"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+    <p>Sign In with Github</p>
+    
+  </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+          <md-icon md-font-icon="icon-directions_bike"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+          <md-icon md-font-icon="icon-directions_bus"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+          <md-icon md-font-icon="icon-directions_railway"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+          <md-icon md-font-icon="icon-directions_car"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+          <md-icon md-font-icon="icon-flight"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+          <md-icon md-font-icon="icon-directions_ferry"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+    </md-toolbar>
+
+    <md-tabs class="md-accent" md-selected="data.selectedIndex" md-dynamic-height md-border-bottom md-align-tabs="top">
+      <md-tab id="tab1">
+        <md-tab-label>Add Data Set</md-tab-label>
+        <md-tab-body layout="column">
+           <form name="userForm" ng-submit="ul.saveDataSet(event)">
+        <div layout layout-sm="column">
+
+          <md-input-container flex md-no-float>
+            <label>Name</label>
+            <input type="text" ng-model="ul.newSet.name">
+          </md-input-container>
+          
+        </div>
+        <md-checkbox ng-model="ul.newSet.featured" aria-label="Featured">
+          Featured: {{ ul.newSet.featured }}
+        </md-checkbox>
+        <md-select ng-model="ul.newSet.organizaton" style="min-width: 200px;">
+      <md-select-label>{{ ul.newSet.organizaton ? ul.newSet.organizaton.name : 'Organization' }}</md-select-label>
+      <md-option ng-value="org" ng-repeat="org in ul.orgs">{{org.name}}</md-option>
+    </md-select>
+        <md-input-container flex md-no-float>
+          <label>Number of Data Sets/Files</label>
+          <input type="number" ng-model="ul.newSet.count">
+        </md-input-container>
+
+        <md-input-container flex md-no-float>
+          <label>Link to Data Set Page</label>
+          <input type="text" ng-model="ul.newSet.link">
+        </md-input-container>
+        <md-input-container flex md-no-float>
+          <label>Link to API Page</label>
+          <input type="text" ng-model="ul.newSet.apiLink">
+        </md-input-container>
+       <md-chips ng-model="ul.newSet.types" md-autocomplete-snap md-require-match>
+      <md-autocomplete
+          md-selected-item="ul.selectedItem"
+          md-search-text="ul.searchText"
+          md-items="item in ul.querySearch(ul.searchText)"
+          md-item-text="item.name"
+          placeholder="Add a transportation type">
+        <span md-highlight-text="ul.searchText">{{item.name}} :: {{item.type}}</span>
+      </md-autocomplete>
+      <md-chip-template>
+        <span>
+          <strong>{{$chip.name}}</strong>
+        </span>
+      </md-chip-template>
+    </md-chips>
+
+        <md-input-container flex>
+          <label>Description</label>
+          <textarea ng-model="ul.newSet.description" columns="1" md-maxlength="255"></textarea>
+        </md-input-container>
+      
+        <md-input-container flex>
+          <md-button class="md-raised">Add</md-button>
+        </md-input-container>
+      </form>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2" ng-disabled="data.secondLocked">
+        <md-tab-label>Add Organization</md-tab-label>
+        <md-tab-body>
+           <form name="userForm" ng-submit="ul.saveOrg(event)">
+        <div layout layout-sm="column">
+
+          <md-input-container flex md-no-float>
+            <label>Name</label>
+            <input type="text" ng-model="ul.newOrg.name">
+          </md-input-container>
+          
+        </div>
+
+        <md-input-container flex md-no-float>
+          <label>Link to Organization Page</label>
+          <input type="text" ng-model="ul.newOrg.link">
+        </md-input-container>
+
+        <md-input-container flex md-no-float>
+          <label>Link to Logo</label>
+          <input type="text" ng-model="ul.newOrg.logo">
+        </md-input-container>
+
+        <md-input-container flex>
+          <label>Description</label>
+          <textarea ng-model="ul.newOrg.description" columns="1" md-maxlength="255"></textarea>
+        </md-input-container>
+      
+        <md-input-container flex>
+          <md-button class="md-raised">Add</md-button>
+        </md-input-container>
+      </form>
+        </md-tab-body>
+      </md-tab>
+
+      <md-tab id="tab3">
+        <md-tab-label>All</md-tab-label>
+        <md-tab-body layout="column">
+       <md-list>
+  <md-list-item class="md-whiteframe-z1" ng-repeat="set in ul.datasets" style="padding-bottom:5px">
+   <md-content flex id="content">
+       <img src="assets/cityseal.jpg" class="avatar">
+        <h2>{{set.name}}</h2>
+        <h3><a href=""></a></h3>
+        <p>{{set.description}}</p>
+        <md-chips ng-model="set.types" readonly="true">
+          <md-chip-template>
+            <strong>{{$chip.name}}</strong>
+          </md-chip-template>
+        </md-chips>
+
+          
+          <md-button href="http://google.com"
+                 title="Add to Favorites"
+                 target="_blank"
+                 ng-disabled="false"
+                 aria-label="Favorite"
+                 class="md-icon-button contact" >
+                 <md-tooltip>Add to Favorites</md-tooltip>
+        <md-icon md-font-icon="icon-star-empty"
+                   ng-style="{'font-size': '24px', height: '24px'}"
+                   ng-class="md-accent"
+                   alt="print">
+          </md-icon>
+      </md-button>
+      
+      </md-content>
+  </md-list-item>
+</md-list>
+</md-tab-body>
+</md-tab>
+     
+    </md-tabs>
+
+
+  </div>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script src="./bower_components/rsvp/rsvp.min.js"></script>
+    <script src="./bower_components/geofire/dist/geofire.js"></script>
+    <script src="./bower_components/angular-new-router/dist/router.es5.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-messages/angular-messages.min.js"></script>
+    
+    <script src="./src/lodash.js"></script>
+
+    <script src="./src/users/Users.js"></script>
+    <script src="./src/users/UserController.js"></script>
+    <script src="./src/users/UserService.js"></script>
+
+    <script type="text/javascript">
+
+          angular
+              .module('starterApp', ['ngMaterial', 'users','firebase'])
+              .config(function($mdThemingProvider, $mdIconProvider){
+
+                  $mdIconProvider
+                      .defaultIconSet("./assets/svg/avatars.svg", 128)
+                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+                      .icon("share"      , "./assets/svg/share.svg"       , 24)
+                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
+                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+
+                      $mdThemingProvider.theme('default')
+                          .primaryPalette('light-blue', {
+                            'default': '900', // by default use shade 400 from the pink palette for primary intentions
+                            'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+                            'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+                            'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+                          })
+                          .accentPalette('red');
+
+              });
+
+    </script>
+
+  </body>
+</html>

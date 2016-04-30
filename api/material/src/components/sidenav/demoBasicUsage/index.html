@@ -1,0 +1,62 @@
+
+<div ng-controller="AppCtrl" layout="vertical" layout-fill>
+
+  <section layout="horizontal" flex>
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+      </md-toolbar>
+      <md-content class="md-content-padding" ng-controller="LeftCtrl">
+        <md-button ng-click="close()" class="md-button-colored" hide-md>
+          Close Sidenav Left
+        </md-button>
+        <p hide show-md>
+          This sidenav is locked open on your device. To go back to the default behavior,
+          narrow your display.
+        </p>
+      </md-content>
+
+    </md-sidenav>
+
+    <md-content flex class="md-content-padding">
+
+      <div layout="vertical" layout-fill layout-align="center center">
+        <p>
+        The left sidenav will 'lock open' on a medium (>=960px wide) device.
+        </p>
+
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-button-colored" hide-md>
+            Toggle left
+          </md-button>
+        </div>
+
+        <div>
+          <md-button ng-click="toggleRight()"
+            class="md-button-colored">
+            Toggle right
+          </md-button>
+        </div>
+      </div>
+
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" component-id="right">
+
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" class="md-content-padding">
+        <md-button ng-click="close()" class="md-button-colored">
+          Close Sidenav Right
+        </md-button>
+      </md-content>
+
+    </md-sidenav>
+
+  </section>
+
+</div>

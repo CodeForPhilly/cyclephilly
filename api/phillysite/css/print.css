@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Custom styles
+   
+   @author: Christopher Le Dantec, ledantec@gatech.edu
+   ========================================================================== */
+
+#mapBody {	width: 7200px; 
+		height: 14400px; 
+		position: relative;  
+		background-color: #fff;
+	}
+
+.cycleAtl_title {
+	padding-top: 10px;
+	font-weight: 400;
+	color: #fff;
+	font-size: 24px;
+}
+
+.trip_count, .trip_total {
+	font-weight: 600;
+}
+
+/* Print styles */
+@page { size:24in 48in; margin: 2cm }

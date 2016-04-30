@@ -1,0 +1,13 @@
+---
+Name: customroutes
+After: framework/routes#coreroutes
+---
+Director:
+  rules:
+    'api' : 'API'
+    'post' : 'TripUploader'
+    'map' : 'SingleTripMap'
+    'chat' : 'ChatPrompt'
+    'rides' : 'HeatMap'
+    'heatmap' : 'HeatMap'
+    'mymap' : 'MyMapAPI'

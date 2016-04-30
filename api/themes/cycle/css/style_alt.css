@@ -1,0 +1,259 @@
+/*  SECTIONS  ============================================================================= */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+	display: block;
+	float:left;
+/*   margin: 1% 0 1% 1.6%; */
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+
+
+/*  GRID OF FIVE   ============================================================================= */
+
+	
+.span_5_of_5 {
+	width: 100%;
+}
+
+.span_4_of_5 {
+  	width: 79.68%; 
+}
+
+.span_3_of_5 {
+  	width: 59.36%; 
+}
+
+.span_2_of_5 {
+  	width: 39.04%;
+}
+
+.span_1_of_5 {
+  	width: 18.72%;
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span_5_of_5 {
+		width: 100%; 
+	}
+	.span_4_of_5 {
+		width: 100%; 
+	}
+	.span_3_of_5 {
+		width: 100%; 
+	}
+	.span_2_of_5 {
+		width: 100%; 
+	}
+	.span_1_of_5 {
+		width: 100%; 
+	}
+}
+
+
+html, body {
+	
+height:100%;
+font-family: Arial, Helvetica, sans-serif;
+z-index: 1;
+
+}
+
+.nav {
+
+  color: #ffffff;
+  padding: 5px;
+  font-size: 1.5em;
+float:right;
+
+}
+
+#map {
+
+height:100%;
+
+}
+
+.cyclePHL_title {
+
+background-color: rgba(169,9,1,0.8); /* red */
+
+
+	padding:10px;
+}
+
+#cycleTitleText a {
+	color: #ffffff;
+
+padding: 5px;
+	font-size: 2.5em;
+
+}
+
+#mapTitleText a {
+	color: #ffffff;
+background-color:#000000;
+padding: 5px;
+	font-size: 2.5em;
+clear:none;
+margin: 5px;
+}
+
+.chosenBox {
+
+z-index: 25;
+background-color: rgb(0,0,0);
+
+padding: 3px;
+
+}
+
+.smallTitle {
+
+font-size: 1em;
+
+
+}
+
+#filterText {
+
+font-size:1.5em;
+color:#ffffff;
+padding: 5px;
+margin-left:10px;
+line-height: 24px;
+background-color: #000000;
+}
+
+
+.content {
+
+padding: 10px;
+
+
+}
+
+/* leaflet control up */
+
+.leaflet-control-up-link {
+  background-image: url(arrow.png);
+}
+
+.leaflet-control-up {
+   background-color: rgba(0, 0, 0, 0.25); 
+
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
+.leaflet-control-up a {
+  /* background-color: rgba(255, 255, 255, 0.75); */
+   background-color: #ffffff;
+
+  
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.leaflet-control-up a:first-child {
+  margin-top: 0;
+}
+
+
+
+/* leaflet control down */
+
+.leaflet-control-down-link {
+  background-image: url(arrow_down.png);
+}
+
+.leaflet-control-down {
+   background-color: rgba(0, 0, 0, 0.25); 
+
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
+.leaflet-control-down a {
+  /* background-color: rgba(255, 255, 255, 0.75); */
+   background-color: #ffffff;
+
+  
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.leaflet-control-down a:first-child {
+  margin-top: 0;
+}
+
+.float-left {
+float: left;
+width: 50%;
+margin: 0 20px 10px 0;
+}
+
+.float-right {
+float: right;
+width: 50%;
+margin: 0 0 10px 20px;
+}
+
+
+

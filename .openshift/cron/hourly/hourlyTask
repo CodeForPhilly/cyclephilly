@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#export COMPOSER_HOME="$OPENSHIFT_DATA_DIR/.composer"
+
+# if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+#     curl -s https://getcomposer.org/installer | php -- --install-dir=$OPENSHIFT_DATA_DIR
+# else
+#     	php $OPENSHIFT_DATA_DIR\composer.phar self-update
+# fi
+
+unset GIT_DIR
+
+cd $OPENSHIFT_REPO_DIR
+# rm -rf assets
+php $OPENSHIFT_REPO_DIR\php/framework/cli-script.php jsonservice/Trip/count start=01-01-2015 save=true path=/trips-count/2015/total

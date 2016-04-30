@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Philly Cycle Trips Map</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <link rel="stylesheet" type="text/css" href="css/L.Control.Sidebar.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="js/L.Control.Sidebar.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <style>
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            padding-top: 50px;
+        }
+
+        #map-ui {
+            width: 180px;
+        }
+
+        #loading {
+            position: fixed;
+            z-index: 200;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(255,255,255,.8);
+            overflow: hidden;
+        }
+
+        #searchbox {
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-bottom-left-radius: 4px;
+            -moz-border-top-left-radius: 4px;
+            -moz-border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .search-container {
+            width: 400px;
+        }
+
+        @media (max-width: 992px) {
+            .search-container {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 765px) {
+            .search-container {
+                width: 100%;
+            }
+        }
+        
+        .Commute { background-color:#256baf; }
+        .School { background-color:#dfdeb6; }
+        .Exercise { background-color:#16ac69; }
+        .Social { background-color:#ccd93e; }
+        .Other { background-color:#698ea2; }
+        .Work-Related { background-color:#0a5983; }
+        .Errand { background-color:#99cccc; }
+        .Shopping { background-color:#2487bc; }
+
+    </style>
+</head>
+<body>
+    <!-- loading animation -->
+    <div id="loading">
+        <div class="bubblingG">
+            <span id="bubblingG_1"></span>
+            <span id="bubblingG_2"></span>
+            <span id="bubblingG_3"></span>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">No results found</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    No results found for address search.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div id="controls" class="navbar-header">
+                <span>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://cyclephilly.org"><img class="img-responsive"
+                       style="max-width:35px; margin-top: -7px;"
+             src="img/logo.png"></a>
+            </div>
+            <div class="navbar-collapse collapse" id="my-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form role="form-addr" class="navbar-form" onsubmit="return searchAddress(this)">
+                            <div class="input-group search-container">
+                                <input id="enteredAddr" type="text" class="form-control" placeholder="Enter address">
+                                <div id="searchAddr" class="input-group-btn"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></div>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="active">
+                        <a class="btn button-default" href="javascript:void(0)" onclick="sidebar.toggle()"><span class="glyphicon glyphicon-th-list"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div id="sidebar">
+        <h2>Layers</h2>
+        <div id="sidebar-content"></div>
+    </div>
+    <div id='map' class="container"></div>
+    <script>
+        var qryAddrUrl = "http://nominatim.openstreetmap.org/search?format=json&addressdetails=0&limit=1&countrycodes=US&json_callback=gotAddress"
+
+        var myMarker, markerCol;
+        var geoAllowed = true;
+        var ui = document.getElementById('sidebar-content');
+        
+        var map = L.map('map', {
+          tileLayer: {
+                detectRetina: true
+            }
+        }).setView([39.952451,-75.163664], 13);
+
+        L.control.layers.autoZIndex = true;
+
+        addLayer(L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', { attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.' }), null, 'Base Map', 1, null);
+          
+        addLayer(L.tileLayer('http://banderkat.com:8888/v2/bike-circuit/{z}/{x}/{y}.png', 
+            {attribution:'Data from DVRPA'}), null, 'The Circuit', 3, null);
+
+        addCyclePhillyLayer('Commute');
+        addCyclePhillyLayer('School');
+        addCyclePhillyLayer('Exercise');
+        addCyclePhillyLayer('Social');
+        addCyclePhillyLayer('Other');
+        addCyclePhillyLayer('Work-Related');
+        addCyclePhillyLayer('Errand');
+        addCyclePhillyLayer('Shopping');
+
+        function addCyclePhillyLayer(purpose) {
+            addLayer(L.tileLayer('http://54.165.29.118/tiles/' + purpose + 
+                '/{z}/{x}/{y}.png', 
+                {attribution:'CyclePhilly'}), 
+                null,
+                //L.mapbox.gridLayer('http://54.165.29.118/tiles/' + purpose + '.json'),
+                purpose, null);
+        }
+
+        function addLayer(layer, infoLayer, name, zIndex, color) {
+            var gridControl = null;
+            layer.addTo(map);
+            if (zIndex == 1) {
+                layer.bringToBack(); // keep base layer at bottom
+            }
+                
+            if (infoLayer) {
+              infoLayer
+                .addTo(map);
+                gridControl = L.mapbox.gridControl(infoLayer, {follow: true}).addTo(map);
+            }
+
+            // Create a simple layer switcher that toggles layers on
+            // and off.
+            var item = document.createElement('li');
+            var link = document.createElement('a');
+            link.href = '#';
+            link.className = 'active pull-right nav-justified';
+            link.innerHTML = '<span class="badge pull-left approved ' + name + 
+                '"><span class="glyphicon glyphicon-ok"></span></span><span class="pull-right">' + 
+                name + '</span>';
+
+            item.setAttribute('role', 'presentation');
+            item.className = 'nav-justified';
+            link.setAttribute('role', 'menuitem');
+            link.tabindex = '-1';
+
+            link.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (map.hasLayer(layer)) {
+                    map.removeLayer(layer);
+                    if (infoLayer) {
+                      map.removeLayer(infoLayer);
+                      gridControl.hide(); // hide any tooltip currently showing
+                      map.removeControl(gridControl);
+                    }
+                    this.className = 'pull-right layeritem nav-justified';
+                    this.innerHTML = '<span class="pull-right">' + name + '</span>';
+                } else {
+                    map.addLayer(layer);
+                    if (infoLayer) {
+                      map.addLayer(infoLayer);
+                      map.addControl(gridControl);
+                    }
+                    this.className = 'active pull-right layeritem nav-justified';
+                    this.innerHTML = '<span class="badge pull-left approved ' + name + 
+                        '"><span class="glyphicon glyphicon-ok"></span></span><span class="pull-right">' + 
+                        name + '</span>';
+                    
+                }
+            };
+
+            item.appendChild(link);
+            ui.appendChild(item);
+        }
+
+        var markerGroup = new L.featureGroup();
+
+        $('form').submit(function () {
+            return false;
+        });
+
+        function selectLoc(locID) {
+            var locStr = 'loc' + locID.toString();
+            var thisMarker = markerCol[locStr];
+            thisMarker.openPopup();
+            sidebar.hide();
+            map.setView(thisMarker.getLatLng(), 14, { animate: true });
+        }
+
+        var amQryAddr = false;
+        function searchAddress(searchStr) {
+            if (amQryAddr) return;
+            amQryAddr = true;
+            var gotTxt = $('#enteredAddr').val();
+            // disable button while searching
+            $('#searchAddr').prop('disabled', true);
+            $.ajax({
+                url: qryAddrUrl, data: { 'q': gotTxt }, dataType: 'jsonp',
+                error: function (xhr, status, error) {
+                    //console.log(error);
+                    //console.log(xhr.statusText);
+                    //console.log(xhr.responseText);
+                    amQryAddr = false;
+                }
+            });
+        }
+
+        $("#enteredAddr").keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                // search on 'Enter' keypress
+                if (!amQryAddr) searchAddress();
+            }
+        });
+
+        function gotAddress(response) {
+            amQryAddr = false;
+
+            if (response.length < 1) {
+                // tell user no results found and re-enable button
+                $('#myModal').modal();
+                $('#searchAddr').prop('disabled', false);
+                return;
+            }
+
+            //console.log(response);
+            var useAddr = response[0];
+            //console.log(useAddr.display_name);
+
+            //console.log(useAddr.lat + " " + useAddr.lon + " " + useAddr.display_name);
+            var myLatLng = L.latLng(useAddr.lat, useAddr.lon);
+            // re-enable button
+            $('#searchAddr').prop('disabled', false);
+
+            if (myMarker) {
+                //myMarker.setLatLng(myLatLng).setZIndexOffset(999).setPopupContent('<p>' + useAddr.lat + ", " + useAddr.lon + '</p>').update().openPopup();
+                myMarker.setLatLng(myLatLng).setZIndexOffset(999).setPopupContent('<p>' + useAddr.display_name + '</p>').update().openPopup();
+            } else {
+                //myMarker = L.marker(myLatLng).bindPopup('<p>' + useAddr.lat + ", " + useAddr.lon + '</p>').setZIndexOffset(999).addTo(map).openPopup();
+                myMarker = L.marker(myLatLng).bindPopup('<p>' + useAddr.display_name + '</p>').setZIndexOffset(999).addTo(map).openPopup();
+            }
+
+            queryForLatLng(useAddr.lat, useAddr.lon);
+        }
+
+        function queryForLatLng(lat, lng) {
+            map.setView([lat, lng], 14, { animate: true });
+            $('#loading').hide();
+        }
+
+        // add sidebar
+        var sidebar = L.control.sidebar('sidebar', {
+            position: 'right'
+        });
+
+        map.addControl(sidebar);
+
+        // try HTML5 geolocation
+        $(document).ready(function () {
+            map.locate({ setView: true, maxZoom: 16, timeout: 5000 });
+            markerGroup.addTo(map);
+        });
+
+        function onLocationFound(e) {
+            //console.log('got position.');
+            geoAllowed = true;
+            if (myMarker) {
+                myMarker.setLatLng(e.latlng).setZIndexOffset(99).setPopupContent('<p>' + ev.latlng + '</p>').update();
+            } else {
+                myMarker = L.marker(e.latlng).bindPopup('<p>' + e.latlng + '</p>').setZIndexOffset(99).addTo(map);
+            }
+
+            queryForLatLng(e.latlng.lat, e.latlng.lng);
+        }
+
+        map.on('locationfound', onLocationFound);   
+
+        function onLocationError(e) {
+            //console.log(e.message);
+            geoAllowed = false;
+            $('#loading').hide();
+
+        }
+
+        map.on('locationerror', onLocationError);
+
+        map.on('contextmenu', function (ev) {
+            if (myMarker) {
+                myMarker.setLatLng(ev.latlng).setZIndexOffset(999).setPopupContent('<p>' + ev.latlng + '</p>').update(); //.openPopup();
+            } else {
+                myMarker = L.marker(ev.latlng).bindPopup('<p>' + ev.latlng + '</p>').setZIndexOffset(999).addTo(map); //.openPopup();
+            }
+            queryForLatLng(ev.latlng.lat, ev.latlng.lng);
+        });
+
+        $(document).ajaxStart(function () {
+            $('#loading').show();
+        }).ajaxStop(function () {
+            $('#loading').hide();
+        });
+
+    </script>
+</body>
+</html>

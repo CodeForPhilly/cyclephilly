@@ -1,0 +1,24 @@
+en:
+  CMSMain:
+    LANGUAGEDROPDOWNLABEL: Language
+  CMSMain_left:
+    GO: Go
+  Form:
+    LANGAOTHER: 'Other languages'
+    LANGAVAIL: 'Available languages'
+  Translatable:
+    ALLCREATED: 'All allowed translations have been created.'
+    CREATE: 'Create new translation'
+    CREATEBUTTON: Create
+    EXISTING: 'Existing translations'
+    NEWLANGUAGE: 'New language'
+    NOTICENEWPAGE: 'Please save this page before creating a translation'
+    TRANSLATEALLPERMISSION: 'Translate into all available languages'
+    TRANSLATEPERMISSION: 'Translate %s'
+    TRANSLATEVIEWLANGS: 'View language dropdown'
+    TRANSLATIONS: Translations
+  Translatable_Transform:
+    CheckboxValueNo: No
+    CheckboxValueYes: Yes
+    OriginalCheckboxLabel: 'Original: {value}'
+    OriginalFieldLabel: 'Original {title}'

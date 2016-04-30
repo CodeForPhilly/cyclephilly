@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="phillysite/css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="phillysite/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="phillysite/css/main.css">
+
+        <script src="phillysite/js/v/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
+    </head>
+   <!-- Only copy over the body to the live site -->
+
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-fixed-top navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img id="navbar-logo" class="img-responsive" src="phillysite/img/logo.png" />
+
+                    <div id="logotext">
+                        <div id="cyclephilly">CyclePhilly</div>
+
+                        <div id="ride">Ride. Record. Reimagine Your Routes.</div>
+                    </div>
+                    <div class="logoTextCount">
+                    </div>
+
+                    <!-- <span id="ride">Ride. Record. Reimagine Your Routes</span> -->
+
+                </a>
+
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a>
+                    </li>
+                    <li><a href="#about">About</a>
+                    </li>
+                    <li><a href="#imap">Map</a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </div>
+
+    <!-- Section #1 -->
+    <section id="intro" data-speed="6" data-type="background">
+
+        <div class="container">
+
+
+            <header id="masthead" class="wrapper">
+
+
+
+
+
+
+
+
+                <div class="container" id="center_top">
+
+
+                    <h1 class="text-center" id="chunk">CyclePhilly</h1>
+                    <p class="text-center">CyclePhilly is a smartphone app for recording your bicycle trips. Data from the app can be used by regional transportation planners in the Philadelphia area to make Philly a better place to ride.</p>
+                   <!--  <p class="text-center">The apps will be available for download in Google Play and the App Store in May.</p> -->
+                  
+                     <p class="text-center">
+                            <a href="android"><img class="no-scale" src="phillysite/img/play.png" /></a>
+                            <a href="https://itunes.apple.com/us/app/cyclephilly/id850035510?ls=1&mt=8"><img class="no-scale" src="phillysite/img/appstore.png" /></a>
+
+                   </p> 
+
+                   </div>
+
+
+                <!-- Twitter start  -->
+               
+
+                <div class="container" style="max-height: 70px;">
+                    <div class="row">
+                        <div class="span4">
+                            <a href="http://www.twitter.com/cyclephilly">
+                                <img class="no-scale float-right" src="phillysite/img/Twitter_logo_white_sml.png" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+    <!-- Twitter end -->
+   
+            </header>
+        </div>
+    </section>
+
+    <!-- Section #3 -->
+    <section class="pad-10" id="about" data-speed="4" data-type="background">
+        <div class="container">
+            <div class="page-header">
+                <h1>About</h1>
+            </div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <p>Cycle Philly was developed by <a href="http://www.codeforphilly.org/projects/Bike_Route_Tracker">Code for Philly</a>, an open group of citizens working to harness the power of technology to modernize citizenship in Philadelphia.</p>
+
+                    <p>CyclePhilly users are helping planners in the City of Philadelphia and Delaware Valley build better bike routes.</p>
+
+                    <p><a href="http://codeforphilly.org/projects/Bike_Route_Tracker">Learn More &raquo;</a>
+                    </p>
+                </div>
+                <!-- /.span4 -->
+            </div>
+    </section>
+
+    <section class="pad-10" id="imap" data-speed="2" data-type="background">
+        <div class="container">
+            <div class="page-header">
+                <h1>Interactive Map</h1>
+            </div>
+            <div class="row-fluid">
+                <div class="span4">
+                  
+                    <p>The Cycle Philly Interactive map allows you to compare your routes to fellow cyclists.</p>
+
+                    <p><a href="/rides/index.php">Access The Map &raquo;</a></p>
+            </div><!-- /.span4 -->
+      </div>
+  </section>
+
+<!-- FOOTER --> 
+    <section id="foot" data-speed="1" data-type="background">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span4">
+
+                    <h2>Partners</h2>
+
+
+<div class="clearfix">
+      <a href="http://codeforphilly.org/" ><img class="float-left no-scale marg-1"  src="phillysite/img/codeforphilly1.png" /></a>
+
+      <a href="http://www.dvrpc.org/"><img class="float-left no-scale marg-1" src="phillysite/img/dvrpc1.png" /></a>
+
+
+    <a href="http://www.septa.org/sustain/"><img class="float-left no-scale marg-1" src="phillysite/img/septa.png" /></a>
+
+    <a href="http://www.phila.gov/Pages/default.aspx"><img class="float-left no-scale marg-1" src="phillysite/img/cityphilly1.png" /></a>
+
+
+
+    <a href="http://www.bicyclecoalition.org/"><img class="float-left no-scale marg-1" src="phillysite/img/bikecoalition.png" /></a>
+
+
+</div>
+                    
+                </div><!-- /.span4 -->
+             </div>
+        </div>
+  </section>
+
+
+  <section class="pad-5" id="foot" data-speed="2" data-type="background">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span4">
+
+
+ <!-- Begin terms and contact -->
+
+
+                    <div align="center">
+
+<a href="#img1">
+  Terms and Privacy
+</a>
+
+<!-- lightbox container hidden with CSS -->
+<div  class="lightbox" id="img1">
+  <div class="marg-10">
+    <p><a href="#_" id="termsLink">&raquo; close &laquo;</a></p>
+
+    <h2 align="center">Terms of Use, Conditions and Privacy</h2>
+<p>CyclePhilly is an app and affiliated webmap that was developed by Code for Philly in connection with the Delaware Valley Regional Planning Commission (collectively and including their affiliates and partners and their respective officers, directors, employees, agents, suppliers, and licensors, the “<strong>CP Team</strong>”) to help local agencies study and understand the needs of cyclists, so that the agencies can more effectively prioritize cycling infrastructure investments. These terms of use and privacy policy explain the services that are provided by the CP Team and CyclePhilly, the terms under which those services are being provided, and describe how personal information is collected, used, and disclosed when you use CyclePhilly through your mobile device.  These terms and the privacy policy apply to all users of CyclePhilly, and by using CyclePhilly, you are accepting and agreeing to these terms.<strong>  If you do not agree to these terms of use and privacy policy, do not use CyclePhilly. </strong> The CP Team may revise these terms of use and privacy policy at any time, and will notify you of any changes in by posting the revised information here.  Any questions concerning these terms of use and privacy policy should be directed to <a href="mailto:support@cyclephilly.org">support@cyclephilly.org</a>.  </p>
+<p align="center"><strong>TERMS OF USE</strong></p>
+<p>CyclePhilly offers you the ability to track and record your bicycle trip routes, times, and purposes, and to view the bicycle trip routes of others, while also allowing local transportation planners to study and base decisions on users’ actual bicycle usage.  Use of CyclePhilly requires your mobile device to have and use a data connection; your carrier’s normal rates and fees will apply.  </p>
+<p><strong><em>User conduct and content.</em></strong>  When you use CyclePhilly, information including your longitude/latitude, speed, and velocity will be collected.  To use some of the optional web-based features of CyclePhilly, you can input certain additional personal information and will have the option to create a personal account.  .  If you input additional personal information, you must provide true and accurate information.  Your failure to do so may negatively impact your ability to use the features of CyclePhilly.  If you create an account, you are responsible for any actions that take place under your account.  Keep your username and password secure and do not allow anyone else to use them.   By submitting content to the CyclePhilly app (whether by inputting information such as your name, email address, age, etc., or by allowing the app to collect automatically generated information such as your GPS location), you grant the CP Team a non-exclusive, non-revocable, worldwide, transferable, royalty-free, perpetual right to use that information in any manner or media now or later developed, for any purpose, commercial, advertising, or otherwise, including the right to translate, display, reproduce, modify, create derivative works, sublicense, distribute, assign, and commercialize without any payment due to you; provided, however, that such use shall be in accordance with the Privacy Policy, below.  The CP Team does not monitor or prescreen user-generated content before it is posted and does not undertake any obligation or liability related to any such content, but reserves the right to remove or edit any such content or to terminate your account for any reason.  If you elect to create a CyclePhilly account using a social networking account (such as a Facebook, Google, or other social networking account), you acknowledge and agree that information that you submit to and that is collected by CyclePhilly may be shared via that social networking account.  CyclePhilly does not monitor or prescreen content before it is posted to your social networking account; you are solely and personally responsible for any content that may be posted to your social networking accounts.</p>
+<p><strong><em>Age restrictions</em></strong>.  CyclePhilly is intended solely for use by users who are 13 years of age or older, and it is a violation of these terms of use for anyone under the age of 13 to register.  By downloading and using CyclePhilly, you represent and warrant that you are 13 years or older.  If you are 13 or older, but under the age of 18, you must review these terms with your parent(s) or legal guardian(s) to ensure that both you and your parent(s) or legal guardian(s) understand and consent to the terms.  A parent or legal guardian accepting these terms for the benefit of a child agrees and accepts full responsibility for the child’s use of CyclePhilly, including all financial charges and legal liability that the child may incur.  </p>
+<p><strong><em>Personal safety notice.  </em></strong>You understand that all your athletic and/or recreational activities, including bicycling while using CyclePhilly, may have inherent, implicit, and/or express risks of bodily injury or death and/or property damage.  You understand and agree that you voluntarily and at your own free will assume all known and unknown risks associated with such athletic or recreational activities, even if such risks may be claimed to be caused in whole or in part by the actions, inactions, or negligence of the CP Team or others.  You understand that the CP Team will not carry out and is not responsible for any physical inspection, supervision, or preparation of any of the routes displayed in the CyclePhilly app and webmap, and that the inclusion of a route is in no way an endorsement or recommendation of any roadway, path, or other route for bicycling, nor are they an indication that any roadway, path, or other route is intended for use by bicyclists. Potential hazards and obstructions may exist on the routes shown, and the CP Team and its partner agencies in no way warrant the safety or fitness of the routes shown. The CP Team encourages you to always put safety first, follow applicable traffic regulations, do not change settings on your mobile device or CyclePhilly while in motion or in unsafe areas, and always exercise due diligence when exercising.  </p>
+<p><strong><em>Disclaimer of warranties and liabilities.  </em></strong>CyclePhilly is provided “AS IS” without any express or implied warranties of any kind.  CyclePhilly disclaims all warranties to the fullest extent permitted by law, whether express or implied, including but not limited to warranties of title, merchantability, fitness for a particular purposes, and non-infringement.  CyclePhilly cannot guarantee that use of CyclePhilly will be timely, uninterrupted, secure, or error-free, that any defects, errors, or malfunctions will be corrected, that CyclePhilly, its platform, or the server hosting CyclePhilly or associated data are free of viruses or anything else harmful.  To the fullest extent permitted by law, the CP Team undertakes no warranties or representations as to the use of CyclePhilly in terms of correctness, accuracy, adequacy, usefulness, reliability, availability, or otherwise.  The CP Team is not liable for the cost of any communications between the CP Team and you or your use of CyclePhilly; you bear the responsibility and cost of your choice of data transmission facilities, and your carrier’s normal rates and fees apply.  You understand and agree that you have downloaded CyclePhilly at your own risk, and will be solely responsible for your use and any damage to your mobile device when you access CyclePhilly, loss of data, or any other harm of any kind that may occur.  </p>
+<p><strong><em>Limitation of liability.  </em></strong>To the<strong></strong>fullest extent of the law, the CP Team shall not jointly or severally be liable for any direct, special, incidental, indirect, or consequential damages, including but not limited to lost profits, business interruptions, or lost data that result from the use of or the inability to use CyclePhilly and any user generated content, even if the CP Team has been advised of the possibility of such damages.  You expressly agree and promise not to sue any member of the CP Team for any claims, injuries, damages, or losses associated with your use of CyclePhilly.  Applicable law may not allow the limitation or exclusion of liability or incidental or consequential damages, so the foregoing limitation may not apply to you in its entirety.  However, you agree that the CP Team’s liability will be limited to the maximum extent of the law.  If links are established to a third-party website, the CP Parties are not liable for the contents of that website.  </p>
+<p><strong><em>Indemnity</em></strong>.  You agree to indemnify, defend, and hold harmless the CP Team from any and all claims, losses, liabilities, expenses, damages, and costs, including without limitation reasonable attorneys’ fees, arising from or relating in any way to your use of CyclePhilly and your conduct in connection with CyclePhilly, other users of CyclePhilly, or any violation of these terms.  </p>
+<p><strong><em>Termination.</em></strong>  The CP Team reserves the right to change, discontinue, and/or terminate CyclePhilly at any time without notice, at its own discretion, and may edit or remove in whole or in part any user’s account or user-generated content.  You understand and agree that some of your user generated content may continue to appear on CyclePhilly or other platforms, even after your account is terminated.  </p>
+<p align="center"><strong>PRIVACY POLICY</strong></p>
+<p>CyclePhilly uses your mobile device’s GPS capabilities to record your bicycle trip routes, times, speed, velocity and purposes, along with other information that you may elect to enter into the app (age, email, gender, ethnicity, home income, home zip, work zip, school zip, cycling frequency, rider type, rider history, etc.).  </p>
+<p><strong><em>You consent to sharing information with the CyclePhilly community and the general public</em></strong>.  By using CyclePhilly, you agree and acknowledge that we may disclose and make available to other CyclePhilly users or to the general public on the CyclePhilly app or on a website information about your bicycle routes.  To protect your privacy, your trips will be shown anonymously and the precise start and end locations of your trips will be obscured from public view; trips will be available to the public based on route purpose.    If you elect to create a CyclePhilly account using a social networking account (e.g., Facebook, Google, etc.) and allow CyclePhilly permissions to “share” information with that account, you agree and acknowledge that any information that you have inputted into the CyclePhilly app or that has been collected by the CyclePhilly app may be shared to your social networking account and will be subject to the permissions and privacy settings that you have put in place for that account.  Neither CyclePhilly nor the CP Team is responsible for monitoring content that may be pushed by CyclePhilly to your social networking account or for ensuring that your social networking account settings are appropriate.  </p>
+<p><strong><em>You consent to sharing information with transportation planning agencies.  </em></strong>By using CyclePhilly, you agree and acknowledge that the information that is recorded by CyclePhilly may be shared among members of the CP Team, including transportation planners, the Delaware Valley Regional Planning Commission (DVRPC), and related state agencies, for analysis and use to inform their decisions about bicycle facilities in the region and to allow them to better understand and predict where cyclists will ride and how land developments and transportation infrastructure affect cycling activity.  Information transmitted to transportation planners will include only trip information (which includes GPS data, your trip route, time, speed, velocity and purposes) and your iPhone's Unique Device Identifier (UDID) or Android phone's Device ID; information transmitted to transportation planners will not include your name, age, gender, or other personal information unless you specifically authorize the disclosure of that information by entering that information into the CyclePhilly app. </p>
+<p><strong><em>Use and transfer of information for business and legal purposes.</em></strong> By using CyclePhilly, you acknowledge and agree that your aggregated or otherwise de-identifiable personal information may be used by CyclePhilly for any purpose and may be shared publicly or with CyclePhilly’s business partners.  Your information may be transferred from CyclePhilly if there is a business transaction or transfer of ownership of CyclePhilly; if this happens, you will be notified of the change and your personal information will continue to be protected in accordance with this Privacy Policy.  You acknowledge and agree that the CP Parties may access, preserve, and disclose your information if required to do so by law or in a good faith belief that such access or preservation or disclosure is reasonably necessary to comply with a legal process, enforce the terms of use, or protect the rights, property, or safety of CyclePhilly, its users, and the public.</p>
+<p><strong><em>Data protection.  </em></strong>In order to protect your personal information that is stored by CyclePhilly, we and our data center service providers have implemented various security measures to keep your personal information stored in a secure environment and treated confidentially.  Your personal information is only accessible to a limited number of CyclePhilly personnel, who all have special access rights and are required to keep the information confidential.  </p>
+ <p><a href="#_" id="termsLink">&raquo; close &laquo;</a></p>
+</div>
+<p> <a href="#_" id="close_button">X</a></p>
+
+</div>
+
+
+                     | <a href="mailto:support@cyclephilly.org">Contact Us</a> | Powered by <a href="http://melle.io">-melle.io-</a></div>
+
+
+
+<!-- End terms and contact --> 
+
+
+        
+                </div><!-- /.span4 -->
+             </div>
+        </div>
+  </section>
+
+<!-- <div id="footer">
+      <div class="container">
+
+      </div>
+    </div> -->
+   
+
+    
+<!-- <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class ="container">
+            <p class="navbar-text text-center">      </p>
+            <p class="navbar-btn btn-success btn pull-right">Counts</p>
+    </div>
+
+</div> -->
+<!-- end copying to live site -->
+
+ 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="phillysite/js/jquery.leddisplay.js"></script>
+    <script src="phillysite/js/v/bootstrap.min.js"></script>
+        <script src="phillysite/js/main.js"></script>
+         <script src="phillysite/js/underscore.js"></script>
+
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45952613-1', 'cyclephilly.org');
+  ga('send', 'pageview');
+
+</script>
+    </body>
+</html>
