@@ -25,18 +25,8 @@
                     </li>
                     <li><a href="#about">About</a>
                     </li>
-                    <li><li class="dropdown">
-              <a href="/maps" class="dropdown-toggle" data-toggle="dropdown">Maps <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#imap">About Maps</a></li>
-              
-                <%-- <li><a href="#">My Map</a></li> --%>
-              </ul>
-            </li>
-                    </li>
-                    <%-- <li><a href="#shirts">Shirts</a></li> --%>
-               
-		    <li><a href="http://community.cyclephilly.org">Community</a>
+                  
+		    <li><a href="https://codeforphilly.org">Community</a>
                     </li>
 
 
