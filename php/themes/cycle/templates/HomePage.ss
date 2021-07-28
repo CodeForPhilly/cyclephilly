@@ -95,18 +95,14 @@
     </section>
 
     <section class="pad-10" id="imap" data-speed="2" data-type="background">
-        <% with Page("maps") %>
         <div class="container">
-            <div class="page-header">
-                <h1>$Title</h1>
-            </div>
-            <div class="row-fluid" style="background: rgba(0, 0, 0, 0.72);padding: 5px 10px;">
-                <div class="span4">
-                $Content
-                </div><!-- /.span4 -->
+            
+            <div class="row-fluid" style="padding: 5px 10px;">
+                <p class="text-center">
+                     <img class="percent-50" src="https://data.bitpost.app/file/b34845ec114a5ce3d4bbf74215cc4cda6a7bde0a77b56c201d940b540f647192" />
+                     </p>
             </div>
         </div>
-        <% end_with %>
   </section>
 
 
