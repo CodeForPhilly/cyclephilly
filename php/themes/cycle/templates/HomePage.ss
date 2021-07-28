@@ -51,32 +51,26 @@
                     <p class="text-center">CyclePhilly is a smartphone app for recording your bicycle trips. Data from the app can be used by regional transportation planners in the Philadelphia area to make Philly a better place to ride.</p>
                    <%--  <p class="text-center">The apps will be available for download in Google Play and the App Store in May.</p> --%>
                      <p class="text-center">
-                            <a href="android"><img class="no-scale" src="{$ThemeDir}/img/play.png" /></a>
-                            <a href="https://itunes.apple.com/us/app/cyclephilly/id850035510?ls=1&mt=8"><img class="no-scale" src="{$ThemeDir}/img/appstore.png" /></a>
-
+                            The CyclePhilly Android and iPhone apps were sunset in 2018. If you are interested in further development of this application, email us at support@cyclephilly.org.
                       </p> 
                      <div class="row"> 
                      <p class="text-center">
                            <a href="http://awards.codeforamerica.org/2015/winner/CyclePhilly/"><img class="percent-50" src="{$ThemeDir}/img/logo-tech-awards-white.png" /></a
                      </p>
+                     
+                     <p class="text-center">
+                           <a href="https://mab14.mediaarchitecture.org/awards/"><img class="percent-50" src="https://data.bitpost.app/file/ed7d33307520e016d62aade227b0c1a636b9877ece6db27e58ecc9ae65ac9187" /></a
+                     </p>
+                     
+                      <p class="text-center">
+                      <a href="http://www.twitter.com/cyclephilly">
+                                <img class="no-scale float-right" src="{$ThemeDir}/img/Twitter_logo_white_sml.png" />
+                            </a>
+                    </p>
   </div>
                 </div>
 
 
-                <%-- Twitter start here --%>
-
-                <div class="container" style="max-height: 70px;">
-                    <div class="row">
-                        <div class="span4">
-                            <a href="http://www.twitter.com/cyclephilly">
-                                <img class="no-scale float-right" src="{$ThemeDir}/img/Twitter_logo_white_sml.png" />
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-    <%-- Twitter end --%>
             </header>
         </div>
     </section>
@@ -141,9 +135,8 @@
                 <div class="span4">
  <!-- Begin terms and contact -->
                     <div align="center">
-
-<a href="#terms">Terms and Privacy</a> | <a href="mailto:support@cyclephilly.org">Contact Us</a> | Powered by <a href="http://melle.io">-melle.io-</a> | <a href="https://plus.google.com/102535786071048979146" rel="publisher">Google+</a></div>
-                     $Form
+<a href="mailto:support@cyclephilly.org">Contact Us</a></div>
+                     
 <!-- lightbox container hidden with CSS -->
 <% include TermsAndConditions %>
 <!-- End terms and contact --> 
